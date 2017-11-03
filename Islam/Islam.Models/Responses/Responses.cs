@@ -1,7 +1,7 @@
 ﻿using Newtonsoft.Json;
 using System.Collections.Generic;
 
-namespace Islam.Models
+namespace Islam.Models.Responses
 {
 	public class AnalyzeResponse
 	{

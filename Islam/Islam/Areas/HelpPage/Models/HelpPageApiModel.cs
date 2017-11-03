@@ -42,37 +42,25 @@ namespace Islam.Areas.HelpPage.Models
         /// </summary>
         public ModelDescription RequestModelDescription { get; set; }
 
-        /// <summary>
-        /// Gets the request body parameter descriptions.
-        /// </summary>
-        public IList<ParameterDescription> RequestBodyParameters
-        {
-            get
-            {
-                return GetParameterDescriptions(RequestModelDescription);
-            }
-        }
+		/// <summary>
+		/// Gets the request body parameter descriptions.
+		/// </summary>
+		public IList<ParameterDescription> RequestBodyParameters => GetParameterDescriptions(RequestModelDescription);
 
-        /// <summary>
-        /// Gets or sets the <see cref="ModelDescription"/> that describes the resource.
-        /// </summary>
-        public ModelDescription ResourceDescription { get; set; }
+		/// <summary>
+		/// Gets or sets the <see cref="ModelDescription"/> that describes the resource.
+		/// </summary>
+		public ModelDescription ResourceDescription { get; set; }
 
-        /// <summary>
-        /// Gets the resource property descriptions.
-        /// </summary>
-        public IList<ParameterDescription> ResourceProperties
-        {
-            get
-            {
-                return GetParameterDescriptions(ResourceDescription);
-            }
-        }
+		/// <summary>
+		/// Gets the resource property descriptions.
+		/// </summary>
+		public IList<ParameterDescription> ResourceProperties => GetParameterDescriptions(ResourceDescription);
 
-        /// <summary>
-        /// Gets the sample requests associated with the API.
-        /// </summary>
-        public IDictionary<MediaTypeHeaderValue, object> SampleRequests { get; private set; }
+		/// <summary>
+		/// Gets the sample requests associated with the API.
+		/// </summary>
+		public IDictionary<MediaTypeHeaderValue, object> SampleRequests { get; private set; }
 
         /// <summary>
         /// Gets the sample responses associated with the API.
@@ -86,23 +74,21 @@ namespace Islam.Areas.HelpPage.Models
 
         private static IList<ParameterDescription> GetParameterDescriptions(ModelDescription modelDescription)
         {
-            ComplexTypeModelDescription complexTypeModelDescription = modelDescription as ComplexTypeModelDescription;
-            if (complexTypeModelDescription != null)
-            {
-                return complexTypeModelDescription.Properties;
-            }
+			if (modelDescription is ComplexTypeModelDescription complexTypeModelDescription)
+			{
+				return complexTypeModelDescription.Properties;
+			}
 
-            CollectionModelDescription collectionModelDescription = modelDescription as CollectionModelDescription;
-            if (collectionModelDescription != null)
-            {
-                complexTypeModelDescription = collectionModelDescription.ElementDescription as ComplexTypeModelDescription;
-                if (complexTypeModelDescription != null)
-                {
-                    return complexTypeModelDescription.Properties;
-                }
-            }
+			if (modelDescription is CollectionModelDescription collectionModelDescription)
+			{
+				complexTypeModelDescription = collectionModelDescription.ElementDescription as ComplexTypeModelDescription;
+				if (complexTypeModelDescription != null)
+				{
+					return complexTypeModelDescription.Properties;
+				}
+			}
 
-            return null;
+			return null;
         }
     }
 }

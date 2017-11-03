@@ -1,6 +1,6 @@
 ﻿using Newtonsoft.Json;
 
-namespace Islam.Models
+namespace Islam.Models.Requests
 {
 	public class AnalyzeRequest
 	{

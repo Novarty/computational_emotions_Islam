@@ -1,4 +1,6 @@
-﻿using Islam.Models;
+﻿using Islam.DAL;
+using Islam.Models.Requests;
+using Islam.Models.Responses;
 using System.Web.Http;
 
 namespace Islam.Controllers
@@ -6,6 +8,7 @@ namespace Islam.Controllers
 	[RoutePrefix("analyzer")]
 	public class AnalyzerController : ApiController
 	{
+		private Context context = new Context();
 
 		[HttpPost]
 		[Route("analyze")]

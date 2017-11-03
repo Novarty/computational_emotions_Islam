@@ -1,0 +1,8 @@
+C:\Users\imullahmetov\source\repos\computational_emotions_Islam\Islam\Islam.Models\bin\Debug\Islam.Models.dll
+C:\Users\imullahmetov\source\repos\computational_emotions_Islam\Islam\Islam.Models\bin\Debug\Islam.Models.pdb
+C:\Users\imullahmetov\source\repos\computational_emotions_Islam\Islam\Islam.Models\bin\Debug\Newtonsoft.Json.dll
+C:\Users\imullahmetov\source\repos\computational_emotions_Islam\Islam\Islam.Models\bin\Debug\Newtonsoft.Json.xml
+C:\Users\imullahmetov\source\repos\computational_emotions_Islam\Islam\Islam.Models\obj\Debug\Islam.Models.csprojResolveAssemblyReference.cache
+C:\Users\imullahmetov\source\repos\computational_emotions_Islam\Islam\Islam.Models\obj\Debug\Islam.Models.csproj.CoreCompileInputs.cache
+C:\Users\imullahmetov\source\repos\computational_emotions_Islam\Islam\Islam.Models\obj\Debug\Islam.Models.dll
+C:\Users\imullahmetov\source\repos\computational_emotions_Islam\Islam\Islam.Models\obj\Debug\Islam.Models.pdb

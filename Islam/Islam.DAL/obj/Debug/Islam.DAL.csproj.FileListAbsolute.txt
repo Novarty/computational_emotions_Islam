@@ -11,3 +11,16 @@ C:\Users\IIMul\source\repos\computational_emotions_Islam\Islam\Islam.DAL\obj\Deb
 C:\Users\IIMul\source\repos\computational_emotions_Islam\Islam\Islam.DAL\obj\Debug\Islam.DAL.pdb
 C:\Users\IIMul\source\repos\computational_emotions_Islam\Islam\Islam.DAL\obj\Debug\Islam.DAL.Migrations.Init.resources
 C:\Users\IIMul\source\repos\computational_emotions_Islam\Islam\Islam.DAL\obj\Debug\Islam.DAL.csproj.GenerateResource.Cache
+C:\Users\imullahmetov\source\repos\computational_emotions_Islam\Islam\Islam.DAL\bin\Debug\Islam.DAL.dll.config
+C:\Users\imullahmetov\source\repos\computational_emotions_Islam\Islam\Islam.DAL\bin\Debug\Islam.DAL.dll
+C:\Users\imullahmetov\source\repos\computational_emotions_Islam\Islam\Islam.DAL\bin\Debug\Islam.DAL.pdb
+C:\Users\imullahmetov\source\repos\computational_emotions_Islam\Islam\Islam.DAL\bin\Debug\EntityFramework.dll
+C:\Users\imullahmetov\source\repos\computational_emotions_Islam\Islam\Islam.DAL\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\imullahmetov\source\repos\computational_emotions_Islam\Islam\Islam.DAL\bin\Debug\EntityFramework.xml
+C:\Users\imullahmetov\source\repos\computational_emotions_Islam\Islam\Islam.DAL\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\imullahmetov\source\repos\computational_emotions_Islam\Islam\Islam.DAL\obj\Debug\Islam.DAL.csprojResolveAssemblyReference.cache
+C:\Users\imullahmetov\source\repos\computational_emotions_Islam\Islam\Islam.DAL\obj\Debug\Islam.DAL.Migrations.Init.resources
+C:\Users\imullahmetov\source\repos\computational_emotions_Islam\Islam\Islam.DAL\obj\Debug\Islam.DAL.csproj.GenerateResource.Cache
+C:\Users\imullahmetov\source\repos\computational_emotions_Islam\Islam\Islam.DAL\obj\Debug\Islam.DAL.csproj.CoreCompileInputs.cache
+C:\Users\imullahmetov\source\repos\computational_emotions_Islam\Islam\Islam.DAL\obj\Debug\Islam.DAL.dll
+C:\Users\imullahmetov\source\repos\computational_emotions_Islam\Islam\Islam.DAL\obj\Debug\Islam.DAL.pdb
