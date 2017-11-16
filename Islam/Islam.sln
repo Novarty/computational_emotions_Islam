@@ -1,0 +1,37 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27004.2006
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Islam", "Islam\Islam.csproj", "{AE886331-CBDF-4042-91C5-B55223F9AA03}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Islam.DAL", "Islam.DAL\Islam.DAL.csproj", "{2D6CFFF0-D6A6-4500-9C7A-6615EDB76EB1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Islam.Models", "Islam.Models\Islam.Models.csproj", "{028E456C-7131-4D95-8B07-9C5BF558B918}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{AE886331-CBDF-4042-91C5-B55223F9AA03}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AE886331-CBDF-4042-91C5-B55223F9AA03}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AE886331-CBDF-4042-91C5-B55223F9AA03}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AE886331-CBDF-4042-91C5-B55223F9AA03}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2D6CFFF0-D6A6-4500-9C7A-6615EDB76EB1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2D6CFFF0-D6A6-4500-9C7A-6615EDB76EB1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2D6CFFF0-D6A6-4500-9C7A-6615EDB76EB1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2D6CFFF0-D6A6-4500-9C7A-6615EDB76EB1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{028E456C-7131-4D95-8B07-9C5BF558B918}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{028E456C-7131-4D95-8B07-9C5BF558B918}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{028E456C-7131-4D95-8B07-9C5BF558B918}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{028E456C-7131-4D95-8B07-9C5BF558B918}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {A04367A6-6E6A-4DAF-89DF-0E2C15FA3468}
+	EndGlobalSection
+EndGlobal
