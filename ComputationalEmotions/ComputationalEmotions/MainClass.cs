@@ -4,13 +4,15 @@ using System.Linq;
 using DocumentFormat.OpenXml;
 using DocumentFormat.OpenXml.Packaging;
 using DocumentFormat.OpenXml.Spreadsheet;
+using System.Globalization;
 
 namespace ComputationalEmotions
 {
     class MainClass
     {
         static string textPath = @"C:\Workspace\Computational Emotions\emotions\Parser\Parser\texts\text 1.txt";
-        static string excelPath = @"C:\Workspace\Computational Emotions\emotions\Parser\Parser\texts\слова и эмоции v1.xlsx";
+        static string excelPath = @"C:\Workspace\Computational Emotions\texts\слова и эмоции v2.xlsx";
+        static WorkbookPart workbookPart;
 
         static void Main(string[] args)
         {
@@ -22,39 +24,67 @@ namespace ComputationalEmotions
         {
             using (SpreadsheetDocument spreadsheetDocument = SpreadsheetDocument.Open(excelPath, false))
             {
-                WorkbookPart workbookPart = spreadsheetDocument.WorkbookPart;
+                workbookPart = spreadsheetDocument.WorkbookPart;
                 WorksheetPart worksheetPart = workbookPart.WorksheetParts.First();
                 SheetData sheetData = worksheetPart.Worksheet.Elements<SheetData>().First();
-                foreach (Row r in sheetData.Elements<Row>())
+                var rows = sheetData.Elements<Row>();
+                var vectors = new List<EmotionalVector>();
+                for (int i=1; i<rows.Count(); i++)
                 {
-                    bool istherecell = false;
-                    foreach (Cell c in r.Elements<Cell>())
+                    var cells = rows.ElementAt(i).Elements<Cell>();
+                    var word = GetValue(cells.ElementAt(0));
+                    if (word.Equals("0.0"))
+                        break;                
+                    var values = new float[8];
+                    for (int j = 1; j < 9; j++)
                     {
-                        var value = c.InnerText;
-                        if (c.DataType != null)
-                        {
-                            istherecell = true;
-                            if (c.DataType.Value == CellValues.SharedString)
-                            {
-                                var stringTable =
-                                    workbookPart.GetPartsOfType<SharedStringTablePart>()
-                                    .FirstOrDefault();
-                                if (stringTable != null)
-                                {
-                                    value =
-                                        stringTable.SharedStringTable
-                                        .ElementAt(int.Parse(value)).InnerText;
-                                }
-                            }
-                        }
-                        Console.Write(value + " ");
+                        var value = GetValue(cells.ElementAt(j));
+                        values[j-1] = float.Parse(value, CultureInfo.InvariantCulture);
                     }
-                    if (istherecell)
-                        Console.WriteLine();
+                    vectors.Add(new EmotionalVector(word, values[0], values[1], values[2], values[3], values[4], values[5], values[6], values[7]));
                 }
-
+                EmotionalVector sum = null;
+                foreach (var v in vectors)
+                {
+                    sum = sum != null ? sum + v : v;
+                }
+                Console.Write(sum.VerbalSet);
+                Console.WriteLine();
+                Console.WriteLine();
+                float valsum = 0;
+                foreach (var e in sum.EmotionalTone)
+                {
+                    Console.WriteLine(e.Emotion + " = " + e.Value);
+                    valsum += e.Value;
+                }
+                Console.Write("SUM = "+valsum);
                 Console.ReadKey();
             }
+        }
+
+        static string GetValue(Cell cell)
+        {
+            string value = cell.InnerText;
+            if (cell.DataType != null)
+            {
+                if (cell.DataType.Value == CellValues.SharedString)
+                {
+                    var stringTable =
+                        workbookPart.GetPartsOfType<SharedStringTablePart>()
+                        .FirstOrDefault();
+                    if (stringTable != null)
+                    {
+                        return
+                            stringTable.SharedStringTable
+                            .ElementAt(int.Parse(value)).InnerText;
+                    }
+                }
+            }
+            if (value.Length < 1)
+            {
+                value = "0.0";
+            }
+            return value;
         }
 
         static void ParseTextByWord(string textpath)

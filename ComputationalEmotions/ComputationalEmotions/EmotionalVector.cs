@@ -47,14 +47,14 @@ namespace ComputationalEmotions
         {
             var newVec = new EmotionalVector(
                 a.verbalSet + " " + b.verbalSet,
-                a.emotionalTone[0].Value + b.emotionalTone[0].Value,
-                a.emotionalTone[1].Value + b.emotionalTone[1].Value,
-                a.emotionalTone[2].Value + b.emotionalTone[2].Value,
-                a.emotionalTone[3].Value + b.emotionalTone[3].Value,
-                a.emotionalTone[4].Value + b.emotionalTone[4].Value,
-                a.emotionalTone[5].Value + b.emotionalTone[5].Value,
-                a.emotionalTone[6].Value + b.emotionalTone[6].Value,
-                a.emotionalTone[7].Value + b.emotionalTone[7].Value);
+                (a.emotionalTone[0].Value + b.emotionalTone[0].Value)/2,
+                (a.emotionalTone[1].Value + b.emotionalTone[1].Value) / 2,
+                (a.emotionalTone[2].Value + b.emotionalTone[2].Value)/ 2,
+                (a.emotionalTone[3].Value + b.emotionalTone[3].Value)/ 2,
+                (a.emotionalTone[4].Value + b.emotionalTone[4].Value)/ 2,
+                (a.emotionalTone[5].Value + b.emotionalTone[5].Value)/ 2,
+                (a.emotionalTone[6].Value + b.emotionalTone[6].Value)/ 2,
+                (a.emotionalTone[7].Value + b.emotionalTone[7].Value)/ 2);
             newVec.summands = new EmotionalVector[] {a,b};
             return newVec;
         }
