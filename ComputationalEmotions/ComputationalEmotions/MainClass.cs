@@ -10,17 +10,17 @@ namespace ComputationalEmotions
 {
     class MainClass
     {
-        static string textPath = @"C:\Workspace\Computational Emotions\emotions\Parser\Parser\texts\text 1.txt";
+        static string textPath = @"C:\Workspace\Computational Emotions\texts\text 1.txt";
         static string excelPath = @"C:\Workspace\Computational Emotions\texts\слова и эмоции v2.xlsx";
         static WorkbookPart workbookPart;
 
         static void Main(string[] args)
         {
-            //ParseTextByWord(textPath);
-            ParseExcel(excelPath);
+            ParseTextByWord(textPath);
+            //GetVectorsFromExcel(excelPath);
         }
 
-        static void ParseExcel(string excelPath)
+        static List<EmotionalVector> GetVectorsFromExcel(string excelPath)
         {
             using (SpreadsheetDocument spreadsheetDocument = SpreadsheetDocument.Open(excelPath, false))
             {
@@ -43,22 +43,23 @@ namespace ComputationalEmotions
                     }
                     vectors.Add(new EmotionalVector(word, values[0], values[1], values[2], values[3], values[4], values[5], values[6], values[7]));
                 }
-                EmotionalVector sum = null;
-                foreach (var v in vectors)
-                {
-                    sum = sum != null ? sum + v : v;
-                }
-                Console.Write(sum.VerbalSet);
-                Console.WriteLine();
-                Console.WriteLine();
-                float valsum = 0;
-                foreach (var e in sum.EmotionalTone)
-                {
-                    Console.WriteLine(e.Emotion + " = " + e.Value);
-                    valsum += e.Value;
-                }
-                Console.Write("SUM = "+valsum);
-                Console.ReadKey();
+                //EmotionalVector sum = null;
+                //foreach (var v in vectors)
+                //{
+                //    sum = sum != null ? sum + v : v;
+                //}
+                //Console.Write(sum.VerbalSet);
+                //Console.WriteLine();
+                //-
+                //float valsum = 0;
+                //foreach (var e in sum.EmotionalTone)
+                //{
+                //    Console.WriteLine(e.Emotion + " = " + e.Value);
+                //    valsum += e.Value;
+                //}
+                //Console.Write("SUM = "+valsum);
+                //Console.ReadKey();
+                return vectors;
             }
         }
 
@@ -100,12 +101,29 @@ namespace ComputationalEmotions
                     result.Add(word);
             }
 
+            EmotionalVector sum = null;
+            var vectors = GetVectorsFromExcel(excelPath);
             foreach (string word in result)
             {
-                Console.WriteLine(word);
+                var vec = vectors.Find(x => x.VerbalSet.Equals(word));
+                if (vec!=null)
+                {
+                    Console.WriteLine(word);
+                    sum = sum != null ? sum + vec : vec;
+                }
             }
-            Console.WriteLine("Press any key to exit.");
-            System.Console.ReadKey();
+
+            Console.WriteLine();
+            float valsum = 0;
+            foreach (var e in sum.EmotionalTone)
+            {
+                Console.WriteLine(e.Emotion + " = " + e.Value);
+                valsum += e.Value;
+            }
+            Console.Write("SUM = " + valsum);
+            Console.ReadKey();
+            //Console.WriteLine("Press any key to exit.");
+            //System.Console.ReadKey();
         }
     }
 }
