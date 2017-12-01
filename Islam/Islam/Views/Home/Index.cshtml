@@ -1,50 +1,108 @@
-﻿<div class="starter-template">
-	<div class="col-lg-6">
-		<div class="body-content">
-			<textarea class="form-control" required></textarea>
-			<div id="results">
-				<label>1</label>
-			</div>
-			<div>
-				<label>1</label>
-			</div>
-			<div>
-				<label>1</label>
-			</div>
-			<div>
-				<label>1</label>
-			</div>
-			<div>
-				<label>1</label>
-			</div>
-			<div>
-				<label>1</label>
-			</div>
-			<input id="analyze" class="btn btn-primary" type="submit" value="Аналлизировать" />
+﻿<!DOCTYPE html>
+<html>
+<head>
+	<title>Form</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<link rel="stylesheet" type="text/css" href="~/Content/ss.css">
+</head>
+<body>
+	<div class="block-container">
+		<div class="block-main-left">
+			<p class="block-title">Analysis</p>
+			<form>
+				<textarea name="text" rows="8"></textarea>
+				<div class="block-emotions-container">
+					<div class="block-emotions">
+						<div class="block-emotion">
+							<span>Joy:</span>
+							<span>0</span>
+						</div>
+						<div class="block-emotion">
+							<span>Trust:</span>
+							<span>0</span>
+						</div>
+						<div class="block-emotion">
+							<span>Fear:</span>
+							<span>0</span>
+						</div>
+						<div class="block-emotion">
+							<span>Anticipation:</span>
+							<span>0</span>
+						</div>
+					</div>
+					<div class="block-emotions">
+						<div class="block-emotion">
+							<span>Surprise:</span>
+							<span>0</span>
+						</div>
+						<div class="block-emotion">
+							<span>Sadness:</span>
+							<span>0</span>
+						</div>
+						<div class="block-emotion">
+							<span>Disgust:</span>
+							<span>0</span>
+						</div>
+						<div class="block-emotion">
+							<span>Anger:</span>
+							<span>0</span>
+						</div>
+					</div>
+				</div>
+				<div class="block-bottom">
+					<button type="submit">Analyse</button>
+				</div>
+			</form>
+		</div>
+		<!--   <div class="block-border">
+		  </div> -->
+		<div class="block-main-right">
+			<p class="block-title">DataBase</p>
+			<form>
+				<textarea rows="8"></textarea>
+				<div class="block-emotions-container">
+					<div class="block-emotions">
+						<div class="block-emotion">
+							<input type="text" name="joy" value="0">
+							<span>Joy</span>
+						</div>
+						<div class="block-emotion">
+							<input type="text" name="trust" value="0">
+							<span>Trust</span>
+						</div>
+						<div class="block-emotion">
+							<input type="text" name="fear" value="0">
+							<span>Fear</span>
+						</div>
+						<div class="block-emotion">
+							<input type="text" name="anticipation" value="0">
+							<span>Anticipation</span>
+						</div>
+					</div>
+					<div class="block-emotions">
+						<div class="block-emotion">
+							<input type="text" name="surprise" value="0">
+							<span>Surprise</span>
+						</div>
+						<div class="block-emotion">
+							<input type="text" name="sadness" value="0">
+							<span>Sadness</span>
+						</div>
+						<div class="block-emotion">
+							<input type="text" name="disgust" value="0">
+							<span>Disgust</span>
+						</div>
+						<div class="block-emotion">
+							<input type="text" name="anger" value="0">
+							<span>Anger</span>
+						</div>
+					</div>
+				</div>
+				<div class="block-bottom">
+					<button type="submit">Add</button>
+				</div>
+			</form>
 		</div>
 	</div>
-	<div class="col-lg-6">
-		<div class="body-content">
-			<textarea class="form-control" required></textarea>
-			<div id="results">
-				<label>1</label>
-			</div>
-			<div>
-				<label>1</label>
-			</div>
-			<div>
-				<label>1</label>
-			</div>
-			<div>
-				<label>1</label>
-			</div>
-			<div>
-				<label>1</label>
-			</div>
-			<div>
-				<label>1</label>
-			</div>
-			<input id="analyze" class="btn btn-primary" type="submit" value="Аналлизировать" />
-		</div>
-	</div>
-</div>
+</body>
+</html>
