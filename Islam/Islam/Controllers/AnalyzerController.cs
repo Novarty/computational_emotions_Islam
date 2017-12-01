@@ -15,7 +15,9 @@ namespace Islam.Controllers
 		[Route("analyze")]
 		public IHttpActionResult Analyze([FromBody]AnalyzeRequest request)
 		{
-			
+			context.Vectors.Add(new Vector { Word = request.Text });
+			context.SaveChanges();
+
 			AnalyzeResponse response = new AnalyzeResponse();
 			return Ok(response);
 		}
