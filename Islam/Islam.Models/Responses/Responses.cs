@@ -1,4 +1,5 @@
 ﻿using Newtonsoft.Json;
+using Newtonsoft.Json.Converters;
 using System.Collections.Generic;
 
 namespace Islam.Models.Responses
@@ -12,9 +13,10 @@ namespace Islam.Models.Responses
 	public class AnalyzeResponseItem
 	{
 		[JsonProperty("emotion")]
-		public string Emotion { get; set; }
+		[JsonConverter(typeof(StringEnumConverter))]
+		public Enum Emotion { get; set; }
 
 		[JsonProperty("value")]
-		public float Value { get; set; }
+		public double Value { get; set; }
 	}
 }

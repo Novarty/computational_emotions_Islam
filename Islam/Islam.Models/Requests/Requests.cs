@@ -7,9 +7,4 @@ namespace Islam.Models.Requests
 		[JsonProperty("text")]
 		public string Text { get; set; }
 	}
-
-	public class AddToDbRequest
-	{
-
-	}
 }
