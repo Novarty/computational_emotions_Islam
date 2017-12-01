@@ -2,6 +2,8 @@
 using Islam.DAL.Entities;
 using Islam.Models.Requests;
 using Islam.Models.Responses;
+using System;
+using System.Linq;
 using System.Web.Http;
 
 namespace Islam.Controllers
@@ -17,8 +19,15 @@ namespace Islam.Controllers
 		{
 			context.Vectors.Add(new Vector { Word = request.Text });
 			context.SaveChanges();
-
-			AnalyzeResponse response = new AnalyzeResponse();
+			Random random = new Random();
+			AnalyzeResponse response = new AnalyzeResponse
+			{
+				Items = context.Emotions.Select(e => new AnalyzeResponseItem
+				{
+					Emotion = e.Enum,
+					//Value = random.NextDouble()
+				})
+			};
 			return Ok(response);
 		}
 	}
