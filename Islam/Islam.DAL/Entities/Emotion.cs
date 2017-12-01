@@ -6,11 +6,16 @@ namespace Islam.DAL.Entities
 {
 	public class Emotion
 	{
+		public Emotion()
+		{
+			EmotionVectors = new HashSet<EmotionVector>();
+		}
+
 		[Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
 		public int Id { get; set; }
 
-		public string Name { get; set; }
+		public Models.Enum Enum { get; set; }
 
-		public ICollection<WordEmotion> WordEmotions { get; set; }
+		public ICollection<EmotionVector> EmotionVectors { get; set; }
 	}
 }

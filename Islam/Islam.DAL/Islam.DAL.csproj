@@ -49,11 +49,11 @@
   <ItemGroup>
     <Compile Include="Context.cs" />
     <Compile Include="Entities\Emotion.cs" />
-    <Compile Include="Entities\Word.cs" />
-    <Compile Include="Entities\WordEmotion.cs" />
-    <Compile Include="Migrations\201711021812314_Init.cs" />
-    <Compile Include="Migrations\201711021812314_Init.Designer.cs">
-      <DependentUpon>201711021812314_Init.cs</DependentUpon>
+    <Compile Include="Entities\EmotionVector.cs" />
+    <Compile Include="Entities\Vector.cs" />
+    <Compile Include="Migrations\201712010947269_Init.cs" />
+    <Compile Include="Migrations\201712010947269_Init.Designer.cs">
+      <DependentUpon>201712010947269_Init.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -63,8 +63,14 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201711021812314_Init.resx">
-      <DependentUpon>201711021812314_Init.cs</DependentUpon>
+    <ProjectReference Include="..\Islam.Models\Islam.Models.csproj">
+      <Project>{028e456c-7131-4d95-8b07-9c5bf558b918}</Project>
+      <Name>Islam.Models</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201712010947269_Init.resx">
+      <DependentUpon>201712010947269_Init.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
