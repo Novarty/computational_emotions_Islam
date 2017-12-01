@@ -19,7 +19,6 @@ namespace Islam.Controllers
 		{
 			context.Vectors.Add(new Vector { Word = request.Text });
 			context.SaveChanges();
-			Random random = new Random();
 			AnalyzeResponse response = new AnalyzeResponse
 			{
 				Items = context.Emotions.Select(e => new AnalyzeResponseItem
