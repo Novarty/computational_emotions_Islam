@@ -96,16 +96,6 @@ C:\Users\IIMul\OneDrive\Документы\GitHub\islam\computational_emotions_I
 C:\Users\IIMul\OneDrive\Документы\GitHub\islam\computational_emotions_Islam\Islam\Islam\bin\System.Web.WebPages.Deployment.xml
 C:\Users\IIMul\OneDrive\Документы\GitHub\islam\computational_emotions_Islam\Islam\Islam\bin\System.Web.WebPages.Razor.xml
 C:\Users\IIMul\OneDrive\Документы\GitHub\islam\computational_emotions_Islam\Islam\Islam\bin\Antlr3.Runtime.pdb
-C:\Users\IIMul\OneDrive\Документы\GitHub\islam\computational_emotions_Islam\Islam\Islam\bin\ru\System.Net.Http.Formatting.resources.dll
-C:\Users\IIMul\OneDrive\Документы\GitHub\islam\computational_emotions_Islam\Islam\Islam\bin\ru\System.Web.Helpers.resources.dll
-C:\Users\IIMul\OneDrive\Документы\GitHub\islam\computational_emotions_Islam\Islam\Islam\bin\ru\System.Web.Http.resources.dll
-C:\Users\IIMul\OneDrive\Документы\GitHub\islam\computational_emotions_Islam\Islam\Islam\bin\ru\System.Web.Http.WebHost.resources.dll
-C:\Users\IIMul\OneDrive\Документы\GitHub\islam\computational_emotions_Islam\Islam\Islam\bin\ru\System.Web.Mvc.resources.dll
-C:\Users\IIMul\OneDrive\Документы\GitHub\islam\computational_emotions_Islam\Islam\Islam\bin\ru\System.Web.Optimization.resources.dll
-C:\Users\IIMul\OneDrive\Документы\GitHub\islam\computational_emotions_Islam\Islam\Islam\bin\ru\System.Web.Razor.resources.dll
-C:\Users\IIMul\OneDrive\Документы\GitHub\islam\computational_emotions_Islam\Islam\Islam\bin\ru\System.Web.WebPages.resources.dll
-C:\Users\IIMul\OneDrive\Документы\GitHub\islam\computational_emotions_Islam\Islam\Islam\bin\ru\System.Web.WebPages.Deployment.resources.dll
-C:\Users\IIMul\OneDrive\Документы\GitHub\islam\computational_emotions_Islam\Islam\Islam\bin\ru\System.Web.WebPages.Razor.resources.dll
 C:\Users\IIMul\OneDrive\Документы\GitHub\islam\computational_emotions_Islam\Islam\Islam\obj\Debug\Islam.csprojResolveAssemblyReference.cache
 C:\Users\IIMul\OneDrive\Документы\GitHub\islam\computational_emotions_Islam\Islam\Islam\obj\Debug\Islam.csproj.CoreCompileInputs.cache
 C:\Users\IIMul\OneDrive\Документы\GitHub\islam\computational_emotions_Islam\Islam\Islam\obj\Debug\Islam.dll
