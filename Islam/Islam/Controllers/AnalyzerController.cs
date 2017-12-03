@@ -17,18 +17,9 @@ namespace Islam.Controllers
 		[Route("analyze")]
 		public IHttpActionResult Analyze([FromBody]AnalyzeRequest request)
 		{
-			context.Vectors.Add(new Vector { Word = request.Text });
+			var c = context.Vectors.ToList();
 			context.SaveChanges();
-			Random random = new Random();
-			AnalyzeResponse response = new AnalyzeResponse
-			{
-				Items = context.Emotions.Select(e => new AnalyzeResponseItem
-				{
-					Emotion = e.Enum,
-					//Value = random.NextDouble()
-				})
-			};
-			return Ok(response);
+			return Ok();
 		}
 	}
 }
