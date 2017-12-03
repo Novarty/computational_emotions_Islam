@@ -7,13 +7,13 @@ namespace Islam.DAL.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.2.0-61023")]
-    public sealed partial class Init : IMigrationMetadata
+    public sealed partial class Initailize : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(Init));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(Initailize));
         
         string IMigrationMetadata.Id
         {
-            get { return "201712010947269_Init"; }
+            get { return "201712011517184_Initailize"; }
         }
         
         string IMigrationMetadata.Source

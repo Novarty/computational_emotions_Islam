@@ -14,7 +14,7 @@ namespace Islam.Models.Responses
 	{
 		[JsonProperty("emotion")]
 		[JsonConverter(typeof(StringEnumConverter))]
-		public Enum Emotion { get; set; }
+		public Emotion Emotion { get; set; }
 
 		[JsonProperty("value")]
 		public double Value { get; set; }

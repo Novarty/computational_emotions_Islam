@@ -2,30 +2,30 @@
 
 namespace Islam.Models
 {
-	public enum Enum : byte
+	public enum Emotion : byte
 	{
 		[EnumMember(Value = "joy")]
-		JOY = 0,
+		JOY = 1,
 
 		[EnumMember(Value = "trust")]
-		TRUST = 1,
+		TRUST = 2,
 
 		[EnumMember(Value = "fear")]
-		FEAR = 2,
+		FEAR = 3,
 
 		[EnumMember(Value = "surprise")]
-		SURPRISE = 3,
+		SURPRISE = 4,
 
-		[EnumMember(Value = "sudness")]
-		SADNESS = 4,
+		[EnumMember(Value = "sadness")]
+		SADNESS = 5,
 
 		[EnumMember(Value = "disgust")]
-		DISGUST = 5,
+		DISGUST = 6,
 
 		[EnumMember(Value = "anger")]
-		ANGER = 6,
+		ANGER = 7,
 
 		[EnumMember(Value = "anticipation")]
-		ANTICIPATION = 7
+		ANTICIPATION = 8
 	}
 }

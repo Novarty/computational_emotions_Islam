@@ -4,18 +4,18 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Islam.DAL.Entities
 {
-	public class Emotion
+	public class Word 
 	{
-		public Emotion()
+		public Word()
 		{
-			EmotionVectors = new HashSet<EmotionVector>();
+			Vectors = new HashSet<Vector>();
 		}
 
 		[Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
 		public int Id { get; set; }
 
-		public Models.Enum Enum { get; set; }
+		public string Value { get; set; }	
 
-		public ICollection<EmotionVector> EmotionVectors { get; set; }
+		public ICollection<Vector> Vectors { get; set; }
 	}
 }
