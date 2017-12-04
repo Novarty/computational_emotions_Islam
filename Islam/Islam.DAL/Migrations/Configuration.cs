@@ -4,12 +4,13 @@ namespace Islam.DAL.Migrations
 	using DocumentFormat.OpenXml.Spreadsheet;
 	using Islam.DAL.Entities;
 	using Islam.Models;
-	using System;
 	using System.Collections.Generic;
 	using System.Data.Entity.Migrations;
 	using System.Globalization;
+	using System.IO;
 	using System.Linq;
 	using System.Text.RegularExpressions;
+	using System.Web;
 
 	internal sealed class Configuration : DbMigrationsConfiguration<Context>
 	{
@@ -29,9 +30,9 @@ namespace Islam.DAL.Migrations
 
 		private void ParseXlsx(Context context)
 		{
-			string excelPath = @"base_data.xlsx";
+			string path = HttpContext.Current.Server.MapPath(@"~\Resources\base_data.xlsx");
 			WorkbookPart workbookPart;
-			using (SpreadsheetDocument spreadsheetDocument = SpreadsheetDocument.Open(excelPath, false))
+			using (SpreadsheetDocument spreadsheetDocument = SpreadsheetDocument.Open(path, true))
 			{
 				workbookPart = spreadsheetDocument.WorkbookPart;
 				WorksheetPart worksheetPart = workbookPart.WorksheetParts.First();
