@@ -69,6 +69,10 @@
     <Compile Include="Migrations\201712051727591_Init1.Designer.cs">
       <DependentUpon>201712051727591_Init1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201712052050261_AddedPriority.cs" />
+    <Compile Include="Migrations\201712052050261_AddedPriority.Designer.cs">
+      <DependentUpon>201712052050261_AddedPriority.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -90,6 +94,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201712051727591_Init1.resx">
       <DependentUpon>201712051727591_Init1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201712052050261_AddedPriority.resx">
+      <DependentUpon>201712052050261_AddedPriority.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

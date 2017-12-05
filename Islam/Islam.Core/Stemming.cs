@@ -1,12 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Islam.Core
+﻿namespace Islam.Core
 {   //used Porter stemming algorithm  
-    class Stemming
+	class Stemming
     {
         
         private char[] arrayOfChar;
@@ -14,7 +8,7 @@ namespace Islam.Core
         private int stemIndex;
 
 
-        public string doStemming(string word)
+        public string DoStemming(string word)
         {
 
             if (string.IsNullOrWhiteSpace(word) || word.Length <= 2) return word;
@@ -30,12 +24,12 @@ namespace Islam.Core
             Step4();
             Step5a();
             Step5b();
-            return new String(arrayOfChar, 0, ++endIndex );
+            return new string(arrayOfChar, 0, ++endIndex );
         }
 
         private bool IsConsonant(int index)
         {
-            var c = arrayOfChar[index];
+			char c = arrayOfChar[index];
             if (c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u') return false;
             return c != 'y' || (index == 0 || !IsConsonant(index - 1));
         }
@@ -43,8 +37,8 @@ namespace Islam.Core
 
         private int Measure()
         {
-            var n = 0;
-            var index = 0;
+			int n = 0;
+			int index = 0;
             while (true)
             {
                 if (index > stemIndex) return n;
@@ -90,17 +84,17 @@ namespace Islam.Core
         private bool IsCVC(int index)
         {
             if (index < 2 || !IsConsonant(index) || IsConsonant(index - 1) || !IsConsonant(index - 2)) return false;
-            var c = arrayOfChar[index];
+			char c = arrayOfChar[index];
             return c != 'w' && c != 'x' && c != 'y';
         }
 
         private bool EndsWith(string s)
         {
-            var length = s.Length;
-            var index = endIndex - length + 1;
+			int length = s.Length;
+			int index = endIndex - length + 1;
             if (index < 0) return false;
 
-            for (var i = 0; i < length; i++)
+            for (int i = 0; i < length; i++)
             {
                 if (arrayOfChar[index + i] != s[i]) return false;
             }
@@ -110,7 +104,7 @@ namespace Islam.Core
 
         private void SetEnd(string s)
         {
-            for (var i = 0; i < s.Length; i++)
+            for (int i = 0; i < s.Length; i++)
             {
                 arrayOfChar[stemIndex + 1 + i] = s[i];
             }

@@ -10,6 +10,8 @@ namespace Islam.DAL.Entities
 
 		public string Word { get; set; }	
 
+		public double Priority { get; set; }
+
 		public float Joy { get; set; }
 
 		public float Trust { get; set; }

@@ -193,7 +193,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Islam.Core\Islam.Core.csproj">
-      <Project>{4c47a74a-a649-4f21-a360-6f186f261b6e}</Project>
+      <Project>{14371F52-1F2B-4D8B-B3F6-FD81C5CF2A95}</Project>
       <Name>Islam.Core</Name>
     </ProjectReference>
     <ProjectReference Include="..\Islam.DAL\Islam.DAL.csproj">
