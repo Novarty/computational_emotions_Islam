@@ -148,7 +148,6 @@ C:\Users\IIMul\OneDrive\Документы\GitHub\islam\computational_emotions_I
 C:\Users\IIMul\OneDrive\Документы\GitHub\islam\computational_emotions_Islam\Islam\Islam\bin\roslyn\vbc.rsp
 C:\Users\IIMul\OneDrive\Документы\GitHub\islam\computational_emotions_Islam\Islam\Islam\bin\roslyn\VBCSCompiler.exe
 C:\Users\IIMul\OneDrive\Документы\GitHub\islam\computational_emotions_Islam\Islam\Islam\bin\roslyn\VBCSCompiler.exe.config
-C:\Users\IIMul\OneDrive\Документы\GitHub\islam\computational_emotions_Islam\Islam\Islam\bin\Resources\base_data.xlsx
 C:\Users\IIMul\OneDrive\Документы\GitHub\islam\computational_emotions_Islam\Islam\Islam\bin\DocumentFormat.OpenXml.dll
 C:\Users\IIMul\OneDrive\Документы\GitHub\islam\computational_emotions_Islam\Islam\Islam\bin\DocumentFormat.OpenXml.xml
 C:\Users\imullahmetov\Source\Repos\computational_emotions_Islam\Islam\Islam\bin\Islam.dll.config
