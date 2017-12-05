@@ -16,7 +16,11 @@ namespace ComputationalEmotions
 
         static void Main(string[] args)
         {
-            ParseTextByWord(textPath);
+            Stemming stem = new Stemming();
+            Console.WriteLine(stem.doStemming("happiness"));
+            Console.WriteLine(stem.doStemming("happy"));
+            Console.ReadKey();
+            //ParseTextByWord(textPath);
             //GetVectorsFromExcel(excelPath);
         }
 
