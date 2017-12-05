@@ -40,6 +40,7 @@
     <Compile Include="EmotionalVector.cs" />
     <Compile Include="EmotionValue.cs" />
     <Compile Include="MainClass.cs" />
+    <Compile Include="Stemming.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="DocumentFormat.OpenXml, Version=2.7.2.0, Culture=neutral, PublicKeyToken=8fb06cb64d019a17, processorArchitecture=MSIL">
