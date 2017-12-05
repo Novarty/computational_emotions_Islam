@@ -3,8 +3,8 @@ using Islam.DAL.Entities;
 using Islam.Models.Requests;
 using Islam.Models.Responses;
 using System;
+using System.Collections.Generic;
 using System.Linq;
-using System.Web;
 using System.Web.Http;
 
 namespace Islam.Controllers
@@ -18,9 +18,8 @@ namespace Islam.Controllers
 		[Route("analyze")]
 		public IHttpActionResult Analyze([FromBody]AnalyzeRequest request)
 		{
-			
-			var c = context.Vectors.ToList();
-			context.SaveChanges();
+			string text = request.Text;
+			List<Vector> d = context.Vectors.ToList();
 			return Ok();
 		}
 	}

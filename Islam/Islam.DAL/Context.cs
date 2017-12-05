@@ -7,8 +7,6 @@ namespace Islam.DAL
     {
 		public DbSet<Vector> Vectors { get; set; }
 
-		public DbSet<Word> Words { get; set; }
-
 		public Context() : base("islam")
 		{
 			Database.SetInitializer(new MigrateDatabaseToLatestVersion<Context, Migrations.Configuration>());
