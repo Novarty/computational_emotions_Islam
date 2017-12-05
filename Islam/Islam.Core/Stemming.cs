@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ComputationalEmotions
+namespace Islam.Core
 {   //used Porter stemming algorithm  
     class Stemming
     {

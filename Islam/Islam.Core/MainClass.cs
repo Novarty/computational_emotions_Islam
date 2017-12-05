@@ -6,23 +6,23 @@ using DocumentFormat.OpenXml.Packaging;
 using DocumentFormat.OpenXml.Spreadsheet;
 using System.Globalization;
 
-namespace ComputationalEmotions
+namespace Islam.Core
 {
     class MainClass
     {
-        static string textPath = @"C:\Workspace\Computational Emotions\texts\text 1.txt";
+        //static string textPath = @"C:\Workspace\Computational Emotions\texts\text 1.txt";
         static string excelPath = @"C:\Workspace\Computational Emotions\texts\слова и эмоции v2.xlsx";
         static WorkbookPart workbookPart;
 
-        static void Main(string[] args)
-        {
-            Stemming stem = new Stemming();
-            Console.WriteLine(stem.doStemming("happiness"));
-            Console.WriteLine(stem.doStemming("happy"));
-            Console.ReadKey();
-            //ParseTextByWord(textPath);
-            //GetVectorsFromExcel(excelPath);
-        }
+        //static void Main(string[] args)
+        //{
+        //    Stemming stem = new Stemming();
+        //    Console.WriteLine(stem.doStemming("happiness"));
+        //    Console.WriteLine(stem.doStemming("happy"));
+        //    Console.ReadKey();
+        //    //ParseTextByWord(textPath);
+        //    //GetVectorsFromExcel(excelPath);
+        //}
 
         static List<EmotionalVector> GetVectorsFromExcel(string excelPath)
         {

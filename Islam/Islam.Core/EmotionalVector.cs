@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ComputationalEmotions
+namespace Islam.Core
 {
-    class EmotionalVector
+    public class EmotionalVector
     {
         private string verbalSet;
         public string VerbalSet { get { return verbalSet; } }

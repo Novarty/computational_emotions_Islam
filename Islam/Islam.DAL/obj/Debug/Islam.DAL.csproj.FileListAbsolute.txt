@@ -26,12 +26,11 @@ C:\Users\IIMul\OneDrive\Документы\GitHub\islam\computational_emotions_I
 C:\Users\IIMul\OneDrive\Документы\GitHub\islam\computational_emotions_Islam\Islam\Islam.DAL\bin\Debug\Newtonsoft.Json.dll
 C:\Users\IIMul\OneDrive\Документы\GitHub\islam\computational_emotions_Islam\Islam\Islam.DAL\bin\Debug\Islam.Models.pdb
 C:\Users\IIMul\OneDrive\Документы\GitHub\islam\computational_emotions_Islam\Islam\Islam.DAL\bin\Debug\Newtonsoft.Json.xml
-C:\Users\IIMul\OneDrive\Документы\GitHub\islam\computational_emotions_Islam\Islam\Islam.DAL\bin\Debug\Resources\base_data.xlsx
 C:\Users\IIMul\OneDrive\Документы\GitHub\islam\computational_emotions_Islam\Islam\Islam.DAL\bin\Debug\DocumentFormat.OpenXml.dll
 C:\Users\IIMul\OneDrive\Документы\GitHub\islam\computational_emotions_Islam\Islam\Islam.DAL\bin\Debug\System.IO.FileSystem.Primitives.dll
 C:\Users\IIMul\OneDrive\Документы\GitHub\islam\computational_emotions_Islam\Islam\Islam.DAL\bin\Debug\System.IO.Packaging.dll
 C:\Users\IIMul\OneDrive\Документы\GitHub\islam\computational_emotions_Islam\Islam\Islam.DAL\bin\Debug\DocumentFormat.OpenXml.xml
-C:\Users\IIMul\OneDrive\Документы\GitHub\islam\computational_emotions_Islam\Islam\Islam.DAL\obj\Debug\Islam.DAL.Migrations.Initailize.resources
+C:\Users\IIMul\OneDrive\Документы\GitHub\islam\computational_emotions_Islam\Islam\Islam.DAL\obj\Debug\Islam.DAL.Migrations.Init.resources
 C:\Users\IIMul\OneDrive\Документы\GitHub\islam\computational_emotions_Islam\Islam\Islam.DAL\obj\Debug\Islam.DAL.csproj.GenerateResource.Cache
 C:\Users\imullahmetov\Source\Repos\computational_emotions_Islam\Islam\Islam.DAL\bin\Debug\Islam.DAL.dll.config
 C:\Users\imullahmetov\Source\Repos\computational_emotions_Islam\Islam\Islam.DAL\bin\Debug\Islam.DAL.dll
@@ -54,6 +53,24 @@ C:\Users\imullahmetov\Source\Repos\computational_emotions_Islam\Islam\Islam.DAL\
 C:\Users\imullahmetov\Source\Repos\computational_emotions_Islam\Islam\Islam.DAL\obj\Debug\Islam.DAL.csproj.CoreCompileInputs.cache
 C:\Users\imullahmetov\Source\Repos\computational_emotions_Islam\Islam\Islam.DAL\obj\Debug\Islam.DAL.dll
 C:\Users\imullahmetov\Source\Repos\computational_emotions_Islam\Islam\Islam.DAL\obj\Debug\Islam.DAL.pdb
+C:\Workspace\Computational Emotions\emotions\Islam\Islam.DAL\bin\Debug\Islam.DAL.dll.config
+C:\Workspace\Computational Emotions\emotions\Islam\Islam.DAL\bin\Debug\Islam.DAL.dll
+C:\Workspace\Computational Emotions\emotions\Islam\Islam.DAL\bin\Debug\Islam.DAL.pdb
+C:\Workspace\Computational Emotions\emotions\Islam\Islam.DAL\bin\Debug\DocumentFormat.OpenXml.dll
+C:\Workspace\Computational Emotions\emotions\Islam\Islam.DAL\bin\Debug\EntityFramework.dll
+C:\Workspace\Computational Emotions\emotions\Islam\Islam.DAL\bin\Debug\EntityFramework.SqlServer.dll
+C:\Workspace\Computational Emotions\emotions\Islam\Islam.DAL\bin\Debug\Islam.Models.dll
+C:\Workspace\Computational Emotions\emotions\Islam\Islam.DAL\bin\Debug\System.IO.FileSystem.Primitives.dll
+C:\Workspace\Computational Emotions\emotions\Islam\Islam.DAL\bin\Debug\System.IO.Packaging.dll
+C:\Workspace\Computational Emotions\emotions\Islam\Islam.DAL\bin\Debug\Newtonsoft.Json.dll
+C:\Workspace\Computational Emotions\emotions\Islam\Islam.DAL\bin\Debug\Islam.Models.pdb
+C:\Workspace\Computational Emotions\emotions\Islam\Islam.DAL\bin\Debug\DocumentFormat.OpenXml.xml
+C:\Workspace\Computational Emotions\emotions\Islam\Islam.DAL\bin\Debug\EntityFramework.xml
+C:\Workspace\Computational Emotions\emotions\Islam\Islam.DAL\bin\Debug\EntityFramework.SqlServer.xml
+C:\Workspace\Computational Emotions\emotions\Islam\Islam.DAL\bin\Debug\Newtonsoft.Json.xml
 C:\Workspace\Computational Emotions\emotions\Islam\Islam.DAL\obj\Debug\Islam.DAL.csprojResolveAssemblyReference.cache
-C:\Workspace\Computational Emotions\emotions\Islam\Islam.DAL\obj\Debug\Islam.DAL.Migrations.Initailize.resources
+C:\Workspace\Computational Emotions\emotions\Islam\Islam.DAL\obj\Debug\Islam.DAL.Migrations.Init.resources
+C:\Workspace\Computational Emotions\emotions\Islam\Islam.DAL\obj\Debug\Islam.DAL.Migrations.Init1.resources
 C:\Workspace\Computational Emotions\emotions\Islam\Islam.DAL\obj\Debug\Islam.DAL.csproj.GenerateResource.Cache
+C:\Workspace\Computational Emotions\emotions\Islam\Islam.DAL\obj\Debug\Islam.DAL.dll
+C:\Workspace\Computational Emotions\emotions\Islam\Islam.DAL\obj\Debug\Islam.DAL.pdb

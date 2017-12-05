@@ -1,95 +1,99 @@
 namespace Islam.DAL.Migrations
 {
-	using DocumentFormat.OpenXml.Packaging;
-	using DocumentFormat.OpenXml.Spreadsheet;
-	using Islam.DAL.Entities;
-	using Islam.Models;
-	using System.Collections.Generic;
-	using System.Data.Entity.Migrations;
-	using System.Globalization;
-	using System.IO;
-	using System.Linq;
-	using System.Text.RegularExpressions;
-	using System.Web;
+    using DocumentFormat.OpenXml.Packaging;
+    using DocumentFormat.OpenXml.Spreadsheet;
+    using Islam.DAL.Entities;
+    using System.Collections.Generic;
+    using System.Data.Entity.Migrations;
+    using System.Globalization;
+    using System.Linq;
+    using System.Text.RegularExpressions;
 
-	internal sealed class Configuration : DbMigrationsConfiguration<Context>
-	{
-		public Configuration()
-		{
-			AutomaticMigrationsEnabled = false;
-		}
+    internal sealed class Configuration : DbMigrationsConfiguration<Context>
+    {
+        private WorkbookPart workbookPart;
 
-		protected override void Seed(Context context)
-		{
-			if (context.Words.Count() == 0)
-			{
-				ParseXlsx(context);
-			}
-		}
+        public Configuration()
+        {
+            AutomaticMigrationsEnabled = false;
+        }
 
-
-		private void ParseXlsx(Context context)
-		{
-			string path = HttpContext.Current.Server.MapPath(@"~\Resources\base_data.xlsx");
-			WorkbookPart workbookPart;
-			using (SpreadsheetDocument spreadsheetDocument = SpreadsheetDocument.Open(path, true))
-			{
-				workbookPart = spreadsheetDocument.WorkbookPart;
-				WorksheetPart worksheetPart = workbookPart.WorksheetParts.First();
-				SheetData sheetData = worksheetPart.Worksheet.Elements<SheetData>().First();
-				IEnumerable<Row> rows = sheetData.Elements<Row>();
-				for (int i = 1; i < rows.Count(); i++)
-				{
-					IEnumerable<Cell> cells = rows.ElementAt(i).Elements<Cell>();
-					string name = GetValue(cells.ElementAt(0));
-					if (name.Equals("0.0"))
-						break;
-					Word word = new Word { Value = name };
-					for (byte j = 1; j < 9; j++)
-					{
-						string value = GetValue(cells.ElementAt(j));
-						float valueF = float.Parse(value, CultureInfo.InvariantCulture);
-						word.Vectors.Add(new Vector { Value = valueF, Emotion = (Emotion)j });
-					}
-					context.Words.Add(word);
-				}
-				context.SaveChanges();
-			}
+        protected override void Seed(Context context)
+        {
+            if (context.Vectors.Count() == 0)
+            {
+                ParseXlsx(context);
+            }
+        }
 
 
-			string GetValue(Cell cell)	
-			{
-				string value = cell.InnerText;
-				if (cell.DataType != null)
-				{
-					if (cell.DataType.Value == CellValues.SharedString)
-					{
-						SharedStringTablePart stringTable =
-							workbookPart.GetPartsOfType<SharedStringTablePart>()
-							.FirstOrDefault();
-						if (stringTable != null)
-						{
-							return
-								stringTable.SharedStringTable
-								.ElementAt(int.Parse(value)).InnerText;
-						}
-					}
-				}
-				if (value.Length < 1)
-				{
-					value = "0.0";
-				}
-				return value;
-			}
-		}
+        private void ParseXlsx(Context context)
+        {
+            string excelPath = @"base_data.xlsx";
+            
+            using (SpreadsheetDocument spreadsheetDocument = SpreadsheetDocument.Open(excelPath, false))
+            {
+                workbookPart = spreadsheetDocument.WorkbookPart;
+                WorksheetPart worksheetPart = workbookPart.WorksheetParts.First();
+                SheetData sheetData = worksheetPart.Worksheet.Elements<SheetData>().First();
+                IEnumerable<Row> rows = sheetData.Elements<Row>();
+                for (int i = 1; i < rows.Count(); i++)
+                {
+                    IEnumerable<Cell> cells = rows.ElementAt(i).Elements<Cell>();
+                    string name = GetValue(cells.ElementAt(0));
+                    if (name.Equals("0.0"))
+                        break;
+                    Vector vector = new Vector()
+                    {
+                        Word = name,
+                        Joy = float.Parse(GetValue(cells.ElementAt(1)), CultureInfo.InvariantCulture),
+                        Trust = float.Parse(GetValue(cells.ElementAt(2)), CultureInfo.InvariantCulture),
+                        Fear = float.Parse(GetValue(cells.ElementAt(3)), CultureInfo.InvariantCulture),
+                        Surprise = float.Parse(GetValue(cells.ElementAt(4)), CultureInfo.InvariantCulture),
+                        Sadness = float.Parse(GetValue(cells.ElementAt(5)), CultureInfo.InvariantCulture),
+                        Disgust = float.Parse(GetValue(cells.ElementAt(6)), CultureInfo.InvariantCulture),
+                        Anger = float.Parse(GetValue(cells.ElementAt(7)), CultureInfo.InvariantCulture),
+                        Anticipation = float.Parse(GetValue(cells.ElementAt(8)), CultureInfo.InvariantCulture),
+                    };
+                    context.Vectors.Add(vector);
+                }
+                context.SaveChanges();
+            }
+        }
 
-		private string GetColumnName(string cellName)
-		{
-			// Create a regular expression to match the column name portion of the cell name.
-			Regex regex = new Regex("[A-Za-z]+");
-			Match match = regex.Match(cellName);
 
-			return match.Value;
-		}
-	}
+        string GetValue(Cell cell)
+        {
+            string value = cell.InnerText;
+            if (cell.DataType != null)
+            {
+                if (cell.DataType.Value == CellValues.SharedString)
+                {
+                    SharedStringTablePart stringTable =
+                        workbookPart.GetPartsOfType<SharedStringTablePart>()
+                        .FirstOrDefault();
+                    if (stringTable != null)
+                    {
+                        return
+                            stringTable.SharedStringTable
+                            .ElementAt(int.Parse(value)).InnerText;
+                    }
+                }
+            }
+            if (value.Length < 1)
+            {
+                value = "0.0";
+            }
+            return value;
+        }
+
+        private string GetColumnName(string cellName)
+        {
+            // Create a regular expression to match the column name portion of the cell name.
+            Regex regex = new Regex("[A-Za-z]+");
+            Match match = regex.Match(cellName);
+
+            return match.Value;
+        }
+    }
 }

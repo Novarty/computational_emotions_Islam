@@ -3,8 +3,8 @@ using Islam.DAL.Entities;
 using Islam.Models.Requests;
 using Islam.Models.Responses;
 using System;
+using System.Collections.Generic;
 using System.Linq;
-using System.Web;
 using System.Web.Http;
 using Islam.Service;
 
@@ -20,8 +20,7 @@ namespace Islam.Controllers
 		public IHttpActionResult Analyze([FromBody]AnalyzeRequest request)
 		{
             TextAnalyzator analyzator = new TextAnalyzator(context);
-			var c = context.Vectors.ToList();
-			context.SaveChanges();
+            var result = analyzator.Analyze(request.Text);
 			return Ok();
 		}
 	}

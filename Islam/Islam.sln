@@ -9,7 +9,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Islam.DAL", "Islam.DAL\Isla
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Islam.Models", "Islam.Models\Islam.Models.csproj", "{028E456C-7131-4D95-8B07-9C5BF558B918}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Islam.Core", "ComputationalEmotions\Islam.Core.csproj", "{4C47A74A-A649-4F21-A360-6F186F261B6E}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Islam.Core", "Islam.Core\Islam.Core.csproj", "{4C47A74A-A649-4F21-A360-6F186F261B6E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ComputationalEmotions
+namespace Islam.Core
 {
-    class EmotionValue
+    public class EmotionValue
     {
         private Emotion emotion;
         public Emotion Emotion { get { return emotion; } }
