@@ -6,6 +6,7 @@ using System;
 using System.Linq;
 using System.Web;
 using System.Web.Http;
+using Islam.Service;
 
 namespace Islam.Controllers
 {
@@ -18,7 +19,7 @@ namespace Islam.Controllers
 		[Route("analyze")]
 		public IHttpActionResult Analyze([FromBody]AnalyzeRequest request)
 		{
-			
+            TextAnalyzator analyzator = new TextAnalyzator(context);
 			var c = context.Vectors.ToList();
 			context.SaveChanges();
 			return Ok();

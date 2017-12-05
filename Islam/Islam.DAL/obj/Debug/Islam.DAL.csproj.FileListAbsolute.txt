@@ -54,3 +54,6 @@ C:\Users\imullahmetov\Source\Repos\computational_emotions_Islam\Islam\Islam.DAL\
 C:\Users\imullahmetov\Source\Repos\computational_emotions_Islam\Islam\Islam.DAL\obj\Debug\Islam.DAL.csproj.CoreCompileInputs.cache
 C:\Users\imullahmetov\Source\Repos\computational_emotions_Islam\Islam\Islam.DAL\obj\Debug\Islam.DAL.dll
 C:\Users\imullahmetov\Source\Repos\computational_emotions_Islam\Islam\Islam.DAL\obj\Debug\Islam.DAL.pdb
+C:\Workspace\Computational Emotions\emotions\Islam\Islam.DAL\obj\Debug\Islam.DAL.csprojResolveAssemblyReference.cache
+C:\Workspace\Computational Emotions\emotions\Islam\Islam.DAL\obj\Debug\Islam.DAL.Migrations.Initailize.resources
+C:\Workspace\Computational Emotions\emotions\Islam\Islam.DAL\obj\Debug\Islam.DAL.csproj.GenerateResource.Cache

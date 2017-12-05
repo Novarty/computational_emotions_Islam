@@ -1,13 +1,15 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.27004.2006
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Islam", "Islam\Islam.csproj", "{AE886331-CBDF-4042-91C5-B55223F9AA03}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Islam.DAL", "Islam.DAL\Islam.DAL.csproj", "{2D6CFFF0-D6A6-4500-9C7A-6615EDB76EB1}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Islam.Models", "Islam.Models\Islam.Models.csproj", "{028E456C-7131-4D95-8B07-9C5BF558B918}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Islam.Core", "ComputationalEmotions\Islam.Core.csproj", "{4C47A74A-A649-4F21-A360-6F186F261B6E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -27,6 +29,10 @@ Global
 		{028E456C-7131-4D95-8B07-9C5BF558B918}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{028E456C-7131-4D95-8B07-9C5BF558B918}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{028E456C-7131-4D95-8B07-9C5BF558B918}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4C47A74A-A649-4F21-A360-6F186F261B6E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4C47A74A-A649-4F21-A360-6F186F261B6E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4C47A74A-A649-4F21-A360-6F186F261B6E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4C47A74A-A649-4F21-A360-6F186F261B6E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

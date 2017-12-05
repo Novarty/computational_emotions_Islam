@@ -245,3 +245,4 @@ C:\Users\imullahmetov\Source\Repos\computational_emotions_Islam\Islam\Islam\obj\
 C:\Users\imullahmetov\Source\Repos\computational_emotions_Islam\Islam\Islam\obj\Debug\Islam.csproj.CoreCompileInputs.cache
 C:\Users\imullahmetov\Source\Repos\computational_emotions_Islam\Islam\Islam\obj\Debug\Islam.dll
 C:\Users\imullahmetov\Source\Repos\computational_emotions_Islam\Islam\Islam\obj\Debug\Islam.pdb
+C:\Workspace\Computational Emotions\emotions\Islam\Islam\obj\Debug\Islam.csprojResolveAssemblyReference.cache
