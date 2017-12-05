@@ -58,11 +58,14 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Context.cs" />
-    <Compile Include="Entities\Vector.cs" />
     <Compile Include="Entities\Word.cs" />
-    <Compile Include="Migrations\201712011517184_Initailize.cs" />
-    <Compile Include="Migrations\201712011517184_Initailize.Designer.cs">
-      <DependentUpon>201712011517184_Initailize.cs</DependentUpon>
+    <Compile Include="Migrations\201712051709102_Init.cs" />
+    <Compile Include="Migrations\201712051709102_Init.Designer.cs">
+      <DependentUpon>201712051709102_Init.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201712051727591_Init1.cs" />
+    <Compile Include="Migrations\201712051727591_Init1.Designer.cs">
+      <DependentUpon>201712051727591_Init1.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -78,8 +81,11 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201712011517184_Initailize.resx">
-      <DependentUpon>201712011517184_Initailize.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201712051709102_Init.resx">
+      <DependentUpon>201712051709102_Init.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201712051727591_Init1.resx">
+      <DependentUpon>201712051727591_Init1.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

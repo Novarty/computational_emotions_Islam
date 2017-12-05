@@ -3,8 +3,6 @@ namespace Islam.DAL.Migrations
 	using DocumentFormat.OpenXml.Packaging;
 	using DocumentFormat.OpenXml.Spreadsheet;
 	using Islam.DAL.Entities;
-	using Islam.Models;
-	using System;
 	using System.Collections.Generic;
 	using System.Data.Entity.Migrations;
 	using System.Globalization;
@@ -20,7 +18,7 @@ namespace Islam.DAL.Migrations
 
 		protected override void Seed(Context context)
 		{
-			if (context.Words.Count() == 0)
+			if (context.Vectors.Count() == 0)
 			{
 				ParseXlsx(context);
 			}
@@ -43,20 +41,25 @@ namespace Islam.DAL.Migrations
 					string name = GetValue(cells.ElementAt(0));
 					if (name.Equals("0.0"))
 						break;
-					Word word = new Word { Value = name };
-					for (byte j = 1; j < 9; j++)
+					Vector vector = new Vector()
 					{
-						string value = GetValue(cells.ElementAt(j));
-						float valueF = float.Parse(value, CultureInfo.InvariantCulture);
-						word.Vectors.Add(new Vector { Value = valueF, Emotion = (Emotion)j });
-					}
-					context.Words.Add(word);
+						Word = name,
+						Joy = float.Parse(GetValue(cells.ElementAt(1)), CultureInfo.InvariantCulture),
+						Trust = float.Parse(GetValue(cells.ElementAt(2)), CultureInfo.InvariantCulture),
+						Fear = float.Parse(GetValue(cells.ElementAt(3)), CultureInfo.InvariantCulture),
+						Surprise = float.Parse(GetValue(cells.ElementAt(4)), CultureInfo.InvariantCulture),
+						Sadness = float.Parse(GetValue(cells.ElementAt(5)), CultureInfo.InvariantCulture),
+						Disgust = float.Parse(GetValue(cells.ElementAt(6)), CultureInfo.InvariantCulture),
+						Anger = float.Parse(GetValue(cells.ElementAt(7)), CultureInfo.InvariantCulture),
+						Anticipation = float.Parse(GetValue(cells.ElementAt(8)), CultureInfo.InvariantCulture),
+					};
+					context.Vectors.Add(vector);
 				}
 				context.SaveChanges();
 			}
 
 
-			string GetValue(Cell cell)	
+			string GetValue(Cell cell)
 			{
 				string value = cell.InnerText;
 				if (cell.DataType != null)
