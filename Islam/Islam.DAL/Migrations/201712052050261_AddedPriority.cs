@@ -6,7 +6,7 @@ namespace Islam.DAL.Migrations
     {
         public override void Up()
         {
-            AddColumn("dbo.Vectors", "Priority", c => c.Double(nullable: true));
+            AddColumn("dbo.Vectors", "Priority", c => c.Double(nullable: false, defaultValue: 0d));
         }
         
         public override void Down()
