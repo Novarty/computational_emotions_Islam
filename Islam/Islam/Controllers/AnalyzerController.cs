@@ -7,6 +7,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web.Http;
 using Islam.Service;
+using Islam.Core;
 
 namespace Islam.Controllers
 {
@@ -15,13 +16,21 @@ namespace Islam.Controllers
 	{
 		private Context context = new Context();
 		
-		[HttpPost]
+		[HttpGet]
 		[Route("analyze")]
-		public IHttpActionResult Analyze([FromBody]AnalyzeRequest request)
+		public IHttpActionResult Analyze([FromUri]string request)
 		{
             TextAnalyzator analyzator = new TextAnalyzator(context);
-            var result = analyzator.Analyze(request.Text);
-			return Ok();
+			EmotionalVector result = analyzator.Analyze(request);
+			AnalyzeResponse response = new AnalyzeResponse
+			{
+				Items = result.EmotionalTone.Select(t => new AnalyzeResponseItem
+				{
+					Emotion = t.Emotion,
+					Value = t.Value
+				})
+			};
+			return Ok(response);
 		}
 	}
 }

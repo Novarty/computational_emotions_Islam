@@ -1,25 +1,27 @@
-﻿using System;
+﻿using Islam.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
+using System.Threading.Tasks; 
+
 
 namespace Islam.Core
 {
     public class EmotionalVector
     {
         private string verbalSet;
-        public string VerbalSet { get { return verbalSet; } }
-        private EmotionValue[] emotionalTone;
-        public EmotionValue[] EmotionalTone { get { return emotionalTone; } }
-        private EmotionalVector[] summands;
-        public EmotionalVector[] Summands { get { return summands; } }
+		public string VerbalSet => verbalSet;
+		private EmotionValue[] emotionalTone;
+		public EmotionValue[] EmotionalTone => emotionalTone;
+		private EmotionalVector[] summands;
+		public EmotionalVector[] Summands => summands;
 
-        public EmotionalVector(string verbalSet, float joyValue, float trustValue, float fearValue,
+		public EmotionalVector(string verbalSet, float joyValue, float trustValue, float fearValue,
             float surpriseValue, float sadnessValue, float disgustValue, float angerValue, float anticipationValue)
         {
             this.verbalSet = verbalSet;
-            var sum = joyValue + trustValue + fearValue + surpriseValue + sadnessValue + disgustValue + angerValue + anticipationValue;
+			float sum = joyValue + trustValue + fearValue + surpriseValue + sadnessValue + disgustValue + angerValue + anticipationValue;
             if (sum > 1f)
             {
                 joyValue /= sum;

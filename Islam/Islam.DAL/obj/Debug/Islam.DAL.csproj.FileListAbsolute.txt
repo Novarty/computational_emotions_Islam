@@ -74,3 +74,5 @@ C:\Workspace\Computational Emotions\emotions\Islam\Islam.DAL\obj\Debug\Islam.DAL
 C:\Workspace\Computational Emotions\emotions\Islam\Islam.DAL\obj\Debug\Islam.DAL.csproj.GenerateResource.Cache
 C:\Workspace\Computational Emotions\emotions\Islam\Islam.DAL\obj\Debug\Islam.DAL.dll
 C:\Workspace\Computational Emotions\emotions\Islam\Islam.DAL\obj\Debug\Islam.DAL.pdb
+C:\Users\IIMul\OneDrive\Документы\GitHub\islam\computational_emotions_Islam\Islam\Islam.DAL\obj\Debug\Islam.DAL.Migrations.Init1.resources
+C:\Users\IIMul\OneDrive\Документы\GitHub\islam\computational_emotions_Islam\Islam\Islam.DAL\obj\Debug\Islam.DAL.Migrations.AddedPriority.resources

@@ -170,6 +170,9 @@
     <Content Include="Scripts\respond.matchmedia.addListener.js" />
     <Content Include="Scripts\respond.matchmedia.addListener.min.js" />
     <Content Include="Scripts\respond.min.js" />
+    <Content Include="Scripts\analyse.js" />
+    <Content Include="Views\Home\Index.html" />
+    <Content Include="Scripts\jquery.min.js" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -193,7 +196,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Islam.Core\Islam.Core.csproj">
-      <Project>{4c47a74a-a649-4f21-a360-6f186f261b6e}</Project>
+      <Project>{14371F52-1F2B-4D8B-B3F6-FD81C5CF2A95}</Project>
       <Name>Islam.Core</Name>
     </ProjectReference>
     <ProjectReference Include="..\Islam.DAL\Islam.DAL.csproj">
