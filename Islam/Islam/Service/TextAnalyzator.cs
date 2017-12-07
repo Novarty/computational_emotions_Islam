@@ -124,8 +124,12 @@ namespace Islam.Service
             foreach (DAL.Entities.Vector dbvector in context.Vectors.ToList())
             {
                 Stemming stem = new Stemming();
-                dbvector.Word = stem.DoStemming(dbvector.Word);
-                dbvector.Priority = 1;   
+                string newWord = stem.DoStemming(dbvector.Word);
+                if (context.Vectors.FirstOrDefault(x => x.Word == newWord) == null)
+                {
+                    dbvector.Word = newWord;
+                }
+                dbvector.Priority = 1;
             }
             context.SaveChanges();
         }
