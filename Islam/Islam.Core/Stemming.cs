@@ -1,6 +1,6 @@
 ﻿namespace Islam.Core
 {   //used Porter stemming algorithm  
-	class Stemming
+	public class Stemming
     {
         
         private char[] arrayOfChar;

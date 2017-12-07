@@ -16,19 +16,30 @@ namespace Islam.Service
 
 		public EmotionalVector Analyze(string text)
 		{
-			List<string> newWords = new List<string>();
-			List<EmotionalVector> oldEmoVectors = new List<EmotionalVector>();
+			List<string> newWords = new List<string>();  
+            List<EmotionalVector> oldEmoVectors = new List<EmotionalVector>();
 			List<string> words = ParseTextByWord(text);
-			EmotionalVector sum = null;
-			foreach (var w in words)
+
+            Stemming stem = new Stemming();
+            for (int i=0; i<words.Count; i++ )
+            {
+                words[i]=stem.DoStemming(words[i]);
+            }
+
+            //Attention use at the first run, then delete;
+            fixDb();
+            
+            List<EmotionalVector> dbVectors = new List<EmotionalVector>();
+            foreach (var w in words)
 			{
-				DAL.Entities.Vector dbvector = context.Vectors.FirstOrDefault(x => x.Word == w);
+                
+                DAL.Entities.Vector dbvector = context.Vectors.FirstOrDefault(x => x.Word == w);
 				if (dbvector != null)
 				{
-					EmotionalVector emovector = new EmotionalVector(dbvector.Word, dbvector.Joy,
+					EmotionalVector emovector = new EmotionalVector(dbvector.Word, dbvector.Priority, dbvector.Joy,
 						dbvector.Trust, dbvector.Fear, dbvector.Surprise, dbvector.Sadness,
 						dbvector.Disgust, dbvector.Anger, dbvector.Anticipation);
-					sum = sum != null ? sum + emovector : emovector;
+                    dbVectors.Add(emovector);
 					oldEmoVectors.Add(emovector);
 				}
 				else
@@ -36,11 +47,16 @@ namespace Islam.Service
 					newWords.Add(w);
 				}
 			}
-			foreach (EmotionalVector oev in oldEmoVectors)
+
+            EmotionalVector sum = countSum(text, dbVectors);
+
+
+            foreach (EmotionalVector oev in oldEmoVectors)
 			{
 				EmotionalVector oldemovector = oev + sum;
 				DAL.Entities.Vector oldvector = context.Vectors.First(x => x.Word.Equals(oev.VerbalSet));
-				oldvector.Joy = oldemovector.EmotionalTone[0].Value;
+                oldvector.Priority = oev.NewPriority(sum);
+                oldvector.Joy = oldemovector.EmotionalTone[0].Value;
 				oldvector.Trust = oldemovector.EmotionalTone[1].Value;
 				oldvector.Fear = oldemovector.EmotionalTone[2].Value;
 				oldvector.Surprise = oldemovector.EmotionalTone[3].Value;
@@ -54,6 +70,7 @@ namespace Islam.Service
 				Vector newvector = new Vector
 				{
 					Word = nw,
+                    Priority = 0.5,
 					Joy = sum.EmotionalTone[0].Value,
 					Trust = sum.EmotionalTone[1].Value,
 					Fear = sum.EmotionalTone[2].Value,
@@ -82,5 +99,35 @@ namespace Islam.Service
 			}
 			return result;
 		}
-	}
+
+        private EmotionalVector countSum(String text,List<EmotionalVector> dbVectors)
+        {
+            EmotionalVector sum = new EmotionalVector(text, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+            double sumPriority = 0;
+            foreach (EmotionalVector dbVector in dbVectors)
+            {
+                sumPriority += dbVector.Priority;
+                for (int i = 0; i < sum.EmotionalTone.Length; i++)
+                {
+                    sum.EmotionalTone[i].SetValue(sum.EmotionalTone[i].Value + dbVector.EmotionalTone[i].Value * (float)dbVector.Priority);
+                }
+            }
+            for (int i = 0; i < sum.EmotionalTone.Length; i++)
+            {
+                sum.EmotionalTone[i].SetValue(sum.EmotionalTone[i].Value / (float)sumPriority);
+            }
+            return sum;
+        }
+
+        private void fixDb()
+        {
+            foreach (DAL.Entities.Vector dbvector in context.Vectors.ToList())
+            {
+                Stemming stem = new Stemming();
+                dbvector.Word = stem.DoStemming(dbvector.Word);
+                dbvector.Priority = 1;   
+            }
+            context.SaveChanges();
+        }
+    }
 }
