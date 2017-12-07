@@ -6,10 +6,12 @@ namespace Islam.DAL.Migrations
     using System.Collections.Generic;
     using System.Data.Entity.Migrations;
     using System.Globalization;
-    using System.Linq;
+	using System.IO;
+	using System.Linq;
     using System.Text.RegularExpressions;
+	using System.Web;
 
-    internal sealed class Configuration : DbMigrationsConfiguration<Context>
+	internal sealed class Configuration : DbMigrationsConfiguration<Context>
     {
         private WorkbookPart workbookPart;
 
@@ -19,19 +21,31 @@ namespace Islam.DAL.Migrations
         }
 
         protected override void Seed(Context context)
-        {
+         {
             if (context.Vectors.Count() == 0)
             {
                 ParseXlsx(context);
             }
+			if(context.Words.Count() == 0)
+			{
+				ReadStopWords(context);
+			}
         }
 
+		private void ReadStopWords(Context context)
+		{
+			IEnumerable<Word> words = File.ReadAllLines(HttpContext.Current.Server.MapPath(@"~\Resources\stop_words.txt"))
+				.Distinct()
+				.Select(w => new Word { Value = w }).ToList();
+			context.Words.AddRange(words);
+			context.SaveChanges();
+		}
 
         private void ParseXlsx(Context context)
         {
-            string excelPath = @"base_data.xlsx";
-            
-            using (SpreadsheetDocument spreadsheetDocument = SpreadsheetDocument.Open(excelPath, false))
+			string path = HttpContext.Current.Server.MapPath(@"~\Resources\base_data.xlsx");
+
+			using (SpreadsheetDocument spreadsheetDocument = SpreadsheetDocument.Open(path, false))
             {
                 workbookPart = spreadsheetDocument.WorkbookPart;
                 WorksheetPart worksheetPart = workbookPart.WorksheetParts.First();
@@ -43,7 +57,7 @@ namespace Islam.DAL.Migrations
                     string name = GetValue(cells.ElementAt(0));
                     if (name.Equals("0.0"))
                         break;
-                    Vector vector = new Vector()
+                    Vector vector = new Vector
                     {
                         Word = name,
                         Joy = float.Parse(GetValue(cells.ElementAt(1)), CultureInfo.InvariantCulture),
@@ -54,6 +68,7 @@ namespace Islam.DAL.Migrations
                         Disgust = float.Parse(GetValue(cells.ElementAt(6)), CultureInfo.InvariantCulture),
                         Anger = float.Parse(GetValue(cells.ElementAt(7)), CultureInfo.InvariantCulture),
                         Anticipation = float.Parse(GetValue(cells.ElementAt(8)), CultureInfo.InvariantCulture),
+						Priority = 1d
                     };
                     context.Vectors.Add(vector);
                 }

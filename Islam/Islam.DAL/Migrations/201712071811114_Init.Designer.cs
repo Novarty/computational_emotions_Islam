@@ -13,7 +13,7 @@ namespace Islam.DAL.Migrations
         
         string IMigrationMetadata.Id
         {
-            get { return "201712051709102_Init"; }
+            get { return "201712071811114_Init"; }
         }
         
         string IMigrationMetadata.Source
