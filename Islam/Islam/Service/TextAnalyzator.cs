@@ -16,15 +16,21 @@ namespace Islam.Service
 		public TextAnalyzator(Context context)
 		{
 			this.context = context;
-			if (context.Vectors.Count() < 200)
+			if (context.Vectors.Count() < 250)
 			{
-
+				LearnSystem();
 			}
 		}
 
 		private void LearnSystem()
 		{
-
+			string path = HttpContext.Current.Server.MapPath($@"~\Resources");
+			var files = Directory.GetFiles(path);
+			foreach(string file in files)
+			{
+				string text = File.ReadAllText(path);
+				Analyze(text);
+			}
 		}
 
         public EmotionalVector Analyze(string text)
