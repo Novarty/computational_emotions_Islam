@@ -12,16 +12,21 @@ namespace Islam.Core
     {
         private string verbalSet;
 		public string VerbalSet => verbalSet;
-		private EmotionValue[] emotionalTone;
+        private double priority;
+        public double Priority => priority;
+        
+      
+        private EmotionValue[] emotionalTone;
 		public EmotionValue[] EmotionalTone => emotionalTone;
 		private EmotionalVector[] summands;
 		public EmotionalVector[] Summands => summands;
 
-		public EmotionalVector(string verbalSet, float joyValue, float trustValue, float fearValue,
+		public EmotionalVector(string verbalSet,double priority, float joyValue, float trustValue, float fearValue,
             float surpriseValue, float sadnessValue, float disgustValue, float angerValue, float anticipationValue)
         {
             this.verbalSet = verbalSet;
-			float sum = joyValue + trustValue + fearValue + surpriseValue + sadnessValue + disgustValue + angerValue + anticipationValue;
+            this.priority = priority;
+            float sum = joyValue + trustValue + fearValue + surpriseValue + sadnessValue + disgustValue + angerValue + anticipationValue;
             if (sum > 1f)
             {
                 joyValue /= sum;
@@ -49,7 +54,8 @@ namespace Islam.Core
         {
             var newVec = new EmotionalVector(
                 a.verbalSet + " " + b.verbalSet,
-                (a.emotionalTone[0].Value + b.emotionalTone[0].Value)/2,
+                0,
+                (a.emotionalTone[0].Value + b.emotionalTone[0].Value) /2,
                 (a.emotionalTone[1].Value + b.emotionalTone[1].Value) / 2,
                 (a.emotionalTone[2].Value + b.emotionalTone[2].Value)/ 2,
                 (a.emotionalTone[3].Value + b.emotionalTone[3].Value)/ 2,
@@ -59,6 +65,31 @@ namespace Islam.Core
                 (a.emotionalTone[7].Value + b.emotionalTone[7].Value)/ 2);
             newVec.summands = new EmotionalVector[] {a,b};
             return newVec;
+        }
+        public double NewPriority(EmotionalVector result)
+        {
+            double exeption = 0;
+            int MaxTextEmotion = 0;
+            for (int i = 0; i < this.emotionalTone.Length; i++)
+            {
+                double maxValue = 0;
+                if (result.emotionalTone[i].Value > maxValue) MaxTextEmotion = i;
+                exeption += Math.Pow(this.emotionalTone[i].Value - result.emotionalTone[i].Value, 2);
+            }
+
+            exeption = exeption / this.emotionalTone.Length;
+
+            if (this.emotionalTone[MaxTextEmotion].Value > result.emotionalTone[MaxTextEmotion].Value)
+            {
+                double newPriority = this.priority + this.priority * exeption;
+                if (newPriority > 1) return 1;
+                else return newPriority;
+            }
+            else
+            {
+                return this.priority - this.priority * exeption;
+            }
+
         }
     }
 }
