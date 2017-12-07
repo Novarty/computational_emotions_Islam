@@ -24,11 +24,11 @@ namespace Islam.Service
 
 		private void LearnSystem()
 		{
-			string path = HttpContext.Current.Server.MapPath($@"~\Resources");
+			string path = HttpContext.Current.Server.MapPath($@"~\Text");
 			var files = Directory.GetFiles(path);
 			foreach(string file in files)
 			{
-				string text = File.ReadAllText(path);
+				string text = File.ReadAllText(file);
 				Analyze(text);
 			}
 		}
