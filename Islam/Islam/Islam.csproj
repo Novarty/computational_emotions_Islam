@@ -159,6 +159,11 @@
     <Content Include="Content\bootstrap-theme.min.css.map" />
     <Content Include="Content\bootstrap-theme.css.map" />
     <Content Include="Resources\stop_words.txt" />
+    <Content Include="Resources\text_01.txt" />
+    <Content Include="Resources\text_02.txt" />
+    <Content Include="Resources\text_03.txt" />
+    <Content Include="Resources\text_04.txt" />
+    <Content Include="Resources\text_05.txt" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Resources\base_data.xlsx" />

@@ -21,15 +21,15 @@ namespace Islam.DAL.Migrations
         }
 
         protected override void Seed(Context context)
-         {
-            if (context.Vectors.Count() == 0)
-            {
-                ParseXlsx(context);
-            }
-			if(context.Words.Count() == 0)
+        {
+			if (context.Words.Count() == 0)
 			{
 				ReadStopWords(context);
 			}
+			if (context.Vectors.Count() == 0)
+            {
+                ParseXlsx(context);
+            }
         }
 
 		private void ReadStopWords(Context context)
@@ -101,6 +101,8 @@ namespace Islam.DAL.Migrations
             }
             return value;
         }
+
+
 
         private string GetColumnName(string cellName)
         {

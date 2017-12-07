@@ -12,7 +12,20 @@ namespace Islam.Service
     public class TextAnalyzator
     {
         private Context context;
-        public TextAnalyzator(Context context) => this.context = context;
+
+		public TextAnalyzator(Context context)
+		{
+			this.context = context;
+			if (context.Vectors.Count() < 200)
+			{
+
+			}
+		}
+
+		private void LearnSystem()
+		{
+
+		}
 
         public EmotionalVector Analyze(string text)
         {
