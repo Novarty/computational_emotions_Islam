@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using Islam.DAL.Entities;
+using System.IO;
 
 namespace Islam.Service
 {
@@ -18,25 +19,17 @@ namespace Islam.Service
             List<string> newWords = new List<string>();
             List<EmotionalVector> oldEmoVectors = new List<EmotionalVector>();
             List<string> words = ParseTextByWord(text);
-            //delete stop words (change path)
-            words = deleteStopWords(words);
-
+            
             Stemming stem = new Stemming();
             for (int i = 0; i < words.Count; i++)
             {
                 words[i] = stem.DoStemming(words[i]);
             }
 
-
-            //Attention use at the first run, then delete;
-            fixDb();
-
-
             List<EmotionalVector> dbVectors = new List<EmotionalVector>();
             foreach (var w in words)
             {
-
-                DAL.Entities.Vector dbvector = context.Vectors.FirstOrDefault(x => x.Word == w);
+                Vector dbvector = context.Vectors.FirstOrDefault(x => x.Word == w);
                 if (dbvector != null)
                 {
                     EmotionalVector emovector = new EmotionalVector(dbvector.Word, dbvector.Priority, dbvector.Joy,
@@ -52,7 +45,6 @@ namespace Islam.Service
             }
 
             EmotionalVector sum = countSum(text, dbVectors);
-
 
             foreach (EmotionalVector oev in oldEmoVectors)
             {
@@ -120,39 +112,6 @@ namespace Islam.Service
                 sum.EmotionalTone[i].SetValue(sum.EmotionalTone[i].Value / (float)sumPriority);
             }
             return sum;
-        }
-
-        private void fixDb()
-        {
-            foreach (DAL.Entities.Vector dbvector in context.Vectors.ToList())
-            {
-                Stemming stem = new Stemming();
-                string newWord = stem.DoStemming(dbvector.Word);
-                if (context.Vectors.FirstOrDefault(x => x.Word == newWord) == null)
-                {
-                    dbvector.Word = newWord;
-                }
-                dbvector.Priority = 1;
-            }
-            context.SaveChanges();
-        }
-
-        private List<string> checkStopWords(List<string> words)
-        {
-            string line;
-            List<string> stopWords = new List<string>();
-            System.IO.StreamReader file = new System.IO.StreamReader(@"C:\Users\volkov\Desktop\emotion\stopwords\stopwords.txt");
-            while ((line = file.ReadLine()) != null)
-            {
-                stopWords.Add(line);
-            }
-            file.Close();
-            foreach(string word in words)
-            {
-                if (stopWords.Contains(word)) words.Remove(word);
-            }
-
-            return words;
         }
     }
 }

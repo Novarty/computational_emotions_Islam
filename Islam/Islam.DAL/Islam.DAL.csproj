@@ -65,17 +65,10 @@
   <ItemGroup>
     <Compile Include="Context.cs" />
     <Compile Include="Entities\Word.cs" />
-    <Compile Include="Migrations\201712051709102_Init.cs" />
-    <Compile Include="Migrations\201712051709102_Init.Designer.cs">
-      <DependentUpon>201712051709102_Init.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201712051727591_Init1.cs" />
-    <Compile Include="Migrations\201712051727591_Init1.Designer.cs">
-      <DependentUpon>201712051727591_Init1.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201712052050261_AddedPriority.cs" />
-    <Compile Include="Migrations\201712052050261_AddedPriority.Designer.cs">
-      <DependentUpon>201712052050261_AddedPriority.cs</DependentUpon>
+    <Compile Include="Entities\Vector.cs" />
+    <Compile Include="Migrations\201712071811114_Init.cs" />
+    <Compile Include="Migrations\201712071811114_Init.Designer.cs">
+      <DependentUpon>201712071811114_Init.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -108,14 +101,8 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201712051709102_Init.resx">
-      <DependentUpon>201712051709102_Init.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201712051727591_Init1.resx">
-      <DependentUpon>201712051727591_Init1.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201712052050261_AddedPriority.resx">
-      <DependentUpon>201712052050261_AddedPriority.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201712071811114_Init.resx">
+      <DependentUpon>201712071811114_Init.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

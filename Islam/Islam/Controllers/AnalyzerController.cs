@@ -21,7 +21,7 @@ namespace Islam.Controllers
 		public IHttpActionResult Analyze([FromUri]string request)
 		{
 			if (request == null) return BadRequest();
-			TextAnalyzator analyzator = new TextAnalyzator(context);
+            TextAnalyzator analyzator = new TextAnalyzator(context);
 			EmotionalVector result = analyzator.Analyze(request);
 			AnalyzeResponse response = new AnalyzeResponse
 			{

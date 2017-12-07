@@ -1,9 +1,8 @@
 namespace Islam.DAL.Migrations
 {
-    using System;
-    using System.Data.Entity.Migrations;
-    
-    public partial class Init : DbMigration
+	using System.Data.Entity.Migrations;
+
+	public partial class Init : DbMigration
     {
         public override void Up()
         {
@@ -11,7 +10,9 @@ namespace Islam.DAL.Migrations
                 "dbo.Vectors",
                 c => new
                     {
-                        Word = c.String(nullable: false, maxLength: 128),
+                        Id = c.Int(nullable: false, identity: true),
+                        Word = c.String(),
+                        Priority = c.Double(nullable: false, defaultValue: 1d),
                         Joy = c.Single(nullable: false),
                         Trust = c.Single(nullable: false),
                         Fear = c.Single(nullable: false),
@@ -21,12 +22,22 @@ namespace Islam.DAL.Migrations
                         Anger = c.Single(nullable: false),
                         Anticipation = c.Single(nullable: false),
                     })
-                .PrimaryKey(t => t.Word);
+                .PrimaryKey(t => t.Id);
+            
+            CreateTable(
+                "dbo.Words",
+                c => new
+                    {
+                        Id = c.Int(nullable: false, identity: true),
+                        Value = c.String(),
+                    })
+                .PrimaryKey(t => t.Id);
             
         }
         
         public override void Down()
         {
+            DropTable("dbo.Words");
             DropTable("dbo.Vectors");
         }
     }
