@@ -230,9 +230,9 @@
 	<script type="text/javascript">
 		var emotions = [];
 		var values = [];
-		var config = {};
+	
 
-		config = {
+		var config = {
 			type: 'pie',
 			data: {
 				datasets: [{
@@ -297,9 +297,9 @@
 
 
 						var emotion = this.emotion;
-						emotions.push(emotion);
+						emotions[i] = emotion;
 						var item_value = this.value;
-						values.push(Number(item_value));
+						values[i] = (Number(item_value));
 
 
 						i++;
@@ -312,6 +312,7 @@
 
 					for (i = 0; i < 8; i++) {
 						config.data.datasets[0].data[i] = values[i];
+						console.log(config.data.datasets[0].data);
 						config.data.labels[i] = emotions[i];
 					}
 
@@ -328,7 +329,7 @@
 					var ctx = document.getElementById("chart-area").getContext("2d");
 					window.myPie = new Chart(ctx, config);
 
-					console.log(window.myPie);
+					
 
 				});
 		});

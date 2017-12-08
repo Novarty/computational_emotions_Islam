@@ -20,7 +20,7 @@ namespace Islam.Controllers
 		[Route("analyze")]
 		public IHttpActionResult Analyze(AnalyzeRequest request)
 		{
-			if (request == null) return BadRequest();
+			if (request.Text == null) return BadRequest();
             TextAnalyzator analyzator = new TextAnalyzator(context);
 			EmotionalVector result = analyzator.Analyze(request.Text);
 			AnalyzeResponse response = new AnalyzeResponse
