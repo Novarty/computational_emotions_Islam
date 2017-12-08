@@ -230,7 +230,47 @@
 	<script type="text/javascript">
 		var emotions = [];
 		var values = [];
-		var config = {};
+	
+
+		var config = {
+			type: 'pie',
+			data: {
+				datasets: [{
+					data: [],
+					backgroundColor: [
+						"#2ecc71",
+						"#3498db",
+						"#95a5a6",
+						"#9b59b6",
+						"#f1c40f",
+						"#e74c3c",
+						"#34495e",
+						"#FF4500"
+					],
+
+					label: 'Dataset 1'
+				}],
+				labels: []
+			},
+			options: {
+				responsive: true,
+				tooltips: {
+					callbacks: {
+						label: function (tooltipItem, data) {
+							var allData = data.datasets[tooltipItem.datasetIndex].data;
+							var tooltipLabel = data.labels[tooltipItem.index];
+							var tooltipData = allData[tooltipItem.index];
+							var total = 0;
+							for (var i in allData) {
+								total += allData[i];
+							}
+							var tooltipPercentage = Math.round((tooltipData / total) * 100);
+							return tooltipLabel + ': ' + tooltipData + ' (' + tooltipPercentage + '%)';
+						}
+					}
+				}
+			}
+		};
 
 
 		var emotionCanvas = document.getElementById("chart-area");
@@ -238,33 +278,14 @@
 
 
 
-		window.chartColors = {
-			red: 'rgb(220, 20, 60)',
-			orange: 'rgb(255, 159, 64)',
-			yellow: 'rgb(255, 255, 0)',
-			green: 'rgb(0, 255, 0)',
-			blue: 'rgb(0,0,255)',
-			purple: 'rgb(128, 0, 128)',
-			grey: 'rgb(231,233,237)',
-			cyan: "rgb(0,255,255)"
-
-		};
-
-		var pieData = [];
-
-
-		var colors = Object.values(window.chartColors);
-
-		/* document.getElementById('reset_btn').addEventListener('click', function(event){
-			 document.getElementById('form8').val('');
-		 })*/
-
 
 
 		document.getElementById('analyse_btn').addEventListener('click', function (event) {
 			event.preventDefault();
 			var textarea_val = $('#form8').val();
-			var analyse_url = '/analyzer/analyze';
+			var analyse_url = 'analyzer/analyze';
+
+			var i = 0;
 
 			jQuery.post(analyse_url, { text: textarea_val })
 				.done(function (response) {
@@ -274,70 +295,41 @@
 						elem_value = $(elem_id).find('.value')[0];
 						$(elem_value).html(this.value);
 
-						var element = { value: this.value, color: '#811BD6' }
-						var emotion = this.emotion;
-						emotions.push(emotion);
-						var item_value = this.value;
-						values.push(Number(item_value));
 
-						pieData.push(element);
+						var emotion = this.emotion;
+						emotions[i] = emotion;
+						var item_value = this.value;
+						values[i] = (Number(item_value));
+
+
+						i++;
 
 					});
 
-					console.log(pieData);
+					if (window.myPie != null) {
+						window.myPie.destroy();
+					}
 
-					config = {};
-
-
-
-					config = {
-						type: 'pie',
-						data: {
-							datasets: [{
-								data: [
-
-								],
-								backgroundColor: [
-
-								],
-								label: 'Dataset 1'
-							}],
-							labels: [
-
-							]
-						},
-						options: {
-							responsive: true,
-							tooltips: {
-								callbacks: {
-									label: function (tooltipItem, data) {
-										var allData = data.datasets[tooltipItem.datasetIndex].data;
-										var tooltipLabel = data.labels[tooltipItem.index];
-										var tooltipData = allData[tooltipItem.index];
-										var total = 0;
-										for (var i in allData) {
-											total += allData[i];
-										}
-										var tooltipPercentage = Math.round((tooltipData / total) * 100);
-										return tooltipLabel + ': ' + tooltipData + ' (' + tooltipPercentage + '%)';
-									}
-								}
-							}
-						}
-					};
+					for (i = 0; i < 8; i++) {
+						config.data.datasets[0].data[i] = values[i];
+						console.log(config.data.datasets[0].data);
+						config.data.labels[i] = emotions[i];
+					}
 
 
 
 
-					config.data.datasets.data = values;
-					config.data.datasets.backgroundColor = colors;
-					config.data.labels = emotions;
+					console.log(config.data.datasets[0].data);
 
-					console.log(config);
+
+
+
 
 
 					var ctx = document.getElementById("chart-area").getContext("2d");
-					window.myPie = new Chart(ctx, pieData);
+					window.myPie = new Chart(ctx, config);
+
+					
 
 				});
 		});

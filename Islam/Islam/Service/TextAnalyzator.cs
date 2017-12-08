@@ -16,10 +16,10 @@ namespace Islam.Service
 		public TextAnalyzator(Context context)
 		{
 			this.context = context;
-			if (context.Vectors.Count() < 250)
-			{
-				LearnSystem();
-			}
+			//if (context.Vectors.Count() < 250)
+			//{
+			//	LearnSystem();
+			//}
 		}
 
 		private void LearnSystem()
