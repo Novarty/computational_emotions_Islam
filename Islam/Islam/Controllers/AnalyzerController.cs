@@ -16,13 +16,13 @@ namespace Islam.Controllers
 	{
 		private Context context = new Context();
 		
-		[HttpGet]
+		[HttpPost]
 		[Route("analyze")]
-		public IHttpActionResult Analyze([FromUri]string request)
+		public IHttpActionResult Analyze(AnalyzeRequest request)
 		{
 			if (request == null) return BadRequest();
             TextAnalyzator analyzator = new TextAnalyzator(context);
-			EmotionalVector result = analyzator.Analyze(request);
+			EmotionalVector result = analyzator.Analyze(request.Text);
 			AnalyzeResponse response = new AnalyzeResponse
 			{
 				Items = result.EmotionalTone.Select(t => new AnalyzeResponseItem
@@ -33,5 +33,7 @@ namespace Islam.Controllers
 			};
 			return Ok(response);
 		}
+
+		
 	}
 }

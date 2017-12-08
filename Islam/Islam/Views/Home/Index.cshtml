@@ -204,22 +204,22 @@
 	</footer>
 
 
-	<script src="js/jquery-3.2.1.min.js"></script>
-	<script src="js/bootstrap.bundle.min.js"></script>
+	<script src="~/Scripts/jquery-3.2.1.min.js"></script>
+	<script src="~/Scripts/bootstrap.bundle.min.js"></script>
 
 
-	<script src="js/jquery.easing.min.js"></script>
+	<script src="~/Scripts/jquery.easing.min.js"></script>
 
 
-	<script src="js/new-age.min.js"></script>
-
-
-
-	<script type="text/javascript" src="js/popper.min.js"></script>
+	<script src="~/Scripts/new-age.min.js"></script>
 
 
 
-	<script type="text/javascript" src="js/mdb.min.js"></script>
+	<script type="text/javascript" src="~/Scripts/popper.min.js"></script>
+
+
+
+	<script type="text/javascript" src="~/Scripts/mdb.min.js"></script>
 
 
 
@@ -264,7 +264,7 @@
 		document.getElementById('analyse_btn').addEventListener('click', function (event) {
 			event.preventDefault();
 			var textarea_val = $('#form8').val();
-			var analyse_url = 'http://localhost:8081//analyzer/analyze';
+			var analyse_url = '/analyzer/analyze';
 
 			jQuery.post(analyse_url, { text: textarea_val })
 				.done(function (response) {
