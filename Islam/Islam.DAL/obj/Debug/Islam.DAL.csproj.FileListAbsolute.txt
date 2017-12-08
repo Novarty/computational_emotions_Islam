@@ -46,7 +46,6 @@ C:\Users\imullahmetov\Source\Repos\computational_emotions_Islam\Islam\Islam.DAL\
 C:\Users\imullahmetov\Source\Repos\computational_emotions_Islam\Islam\Islam.DAL\bin\Debug\EntityFramework.SqlServer.xml
 C:\Users\imullahmetov\Source\Repos\computational_emotions_Islam\Islam\Islam.DAL\bin\Debug\Newtonsoft.Json.xml
 C:\Users\imullahmetov\Source\Repos\computational_emotions_Islam\Islam\Islam.DAL\obj\Debug\Islam.DAL.csprojResolveAssemblyReference.cache
-C:\Users\imullahmetov\Source\Repos\computational_emotions_Islam\Islam\Islam.DAL\obj\Debug\Islam.DAL.Migrations.Initailize.resources
 C:\Users\imullahmetov\Source\Repos\computational_emotions_Islam\Islam\Islam.DAL\obj\Debug\Islam.DAL.csproj.GenerateResource.Cache
 C:\Users\imullahmetov\Source\Repos\computational_emotions_Islam\Islam\Islam.DAL\obj\Debug\Islam.DAL.csproj.CoreCompileInputs.cache
 C:\Users\imullahmetov\Source\Repos\computational_emotions_Islam\Islam\Islam.DAL\obj\Debug\Islam.DAL.dll
@@ -97,3 +96,4 @@ C:\Users\volkov\Desktop\emotion\Islam\Islam.DAL\obj\Debug\Islam.DAL.dll
 C:\Users\volkov\Desktop\emotion\Islam\Islam.DAL\obj\Debug\Islam.DAL.pdb
 C:\Users\IIMul\OneDrive\Документы\GitHub\islam\computational_emotions_Islam\Islam\Islam.DAL\obj\Debug\Islam.DAL.Migrations.Init.resources
 C:\Users\IIMul\OneDrive\Документы\GitHub\islam\computational_emotions_Islam\Islam\Islam.DAL\obj\Debug\Islam.DAL.csproj.GenerateResource.Cache
+C:\Users\imullahmetov\source\repos\computational_emotions_Islam\Islam\Islam.DAL\obj\Debug\Islam.DAL.Migrations.Init.resources

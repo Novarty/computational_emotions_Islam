@@ -1,62 +1,352 @@
 ﻿<!DOCTYPE html>
-<html>
-<head>
-	<title>Form</title>
-	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-	<link rel="stylesheet" type="text/css" href="~/Content/ss.css">
+<html lang="en">
 
-	<script src="~/Scripts/jquery.min.js"></script>
-	<script src="~/Scripts/analyse.js"></script>
+<head>
+
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+	<title>ISLAM - an amazing text analyser!</title>
+
+
+	<link href="~/Content/bootstrap.min.css" rel="stylesheet">
+
+	<link rel="stylesheet" href="~/Content/font-awesome.min.css">
+	<link rel="stylesheet" href="~/Content/simple-line-icons.css">
+	<link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Catamaran:100,200,300,400,500,600,700,800,900" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Muli" rel="stylesheet">
+
+
+	<link rel="stylesheet" href="~/Content/device-mockups.css">
+	<link rel="stylesheet" href="~/Content/mdb.css">
+	<link href="~/Content/style.css" rel="stylesheet">
+
+
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.bundle.min.js"></script>
+
+
+
 </head>
-<body>
-	<div class="block-container">
-		<div class="block-main-left">
-			<p class="block-title">Analysis</p>
-			<form>
-				<textarea id="text" rows="8"></textarea>
-				<div class="block-emotions-container">
-					<div class="block-emotions">
-						<div class="block-emotion" id="joy">
-							<span>Joy:</span>
-							<span class="value">0</span>
-						</div>
-						<div class="block-emotion" id="trust">
-							<span>Trust:</span>
-							<span class="value">0</span>
-						</div>
-						<div class="block-emotion" id="fear">
-							<span>Fear:</span>
-							<span class="value">0</span>
-						</div>
-						<div class="block-emotion" id="anticipation">
-							<span>Anticipation:</span>
-							<span class="value">0</span>
-						</div>
-					</div>
-					<div class="block-emotions">
-						<div class="block-emotion" id="surprise">
-							<span>Surprise:</span>
-							<span class="value">0</span>
-						</div>
-						<div class="block-emotion" id="sadness">
-							<span>Sadness:</span>
-							<span class="value">0</span>
-						</div>
-						<div class="block-emotion" id="disgust">
-							<span>Disgust:</span>
-							<span class="value">0</span>
-						</div>
-						<div class="block-emotion" id="anger">
-							<span>Anger:</span>
-							<span class="value">0</span>
-						</div>
-					</div>
-				</div>
-				<div class="block-bottom" id="sbm">
-					<button type="button">Analyse</button>
-				</div>
-			</form>
+
+<body id="page-top">
+
+	<nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
+		<div class="container">
+			<button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+				Menu
+				<i class="fa fa-bars"></i>
+			</button>
+			<div class="collapse navbar-collapse" id="navbarResponsive">
+				<ul class="navbar-nav ml-auto">
+					<li class="nav-item">
+						<a class="nav-link js-scroll-trigger" href="#masthead">Title</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link js-scroll-trigger" href="#features">App</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link js-scroll-trigger" href="#contact">Contact</a>
+					</li>
+				</ul>
+			</div>
 		</div>
-	</div>
+	</nav>
+
+	<header class="masthead" id="masthead">
+		<div class="container h-100">
+			<div class="row h-100">
+				<div class="col-lg-6 my-auto">
+					<div class="header-content mx-auto">
+						<h1 class="mb-5">Islam is an app landing page that will help you to get of the emotional coloring of text</h1>
+						<a href="#features" class="btn btn-outline btn-xl js-scroll-trigger">Start Now</a>
+					</div>
+				</div>
+				<div class="col-lg-6 my-auto">
+					<div class="device-container">
+						<div class="device-mockup">
+							<div class="device">
+								<div class="screen">
+
+								</div>
+								<div class="button">
+
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</header>
+
+
+
+	<section class="features" id="features">
+		<div class="container">
+			<div class="section-heading text-center">
+				<h2>Test our an amazing text analyser app</h2>
+				<p class="text-muted">Check out what you can do with this app!</p>
+				<hr>
+			</div>
+			<div class="row" class="analyser_body">
+				<div class="col-md-9 md-form">
+					<i class="fa fa-pencil prefix"></i>
+					<textarea type="text" id="form8" class="md-textarea" rows=30></textarea>
+					<label for="form8" class="textarea_lbl">Enter the text</label>
+				</div>
+				<div class="col-md-3">
+					<div class="row">
+						<div class="col-md-12">
+							<button class="btn btn-secondary btn-lg btn-block" id="analyse_btn">Analyse</button>
+							<button id="reset_btn" class="btn btn-blue-grey btn-lg btn-block" onclick="document.getElementById('form8').value='';">Reset</button>
+						</div>
+					</div>
+
+
+				</div>
+
+
+
+			</div>
+			<div class="row graph_block">
+				<div class="col-lg-4">
+
+					<canvas id="chart-area" />
+
+				</div>
+				<div class="col-md-1"></div>
+				<div class="col-lg-6 ">
+					<div class="row block-emotions-container">
+						<div class="block-emotions col-lg-6">
+							<div class="block-emotion" id="joy">
+								<span>Joy:</span>
+								<span class="value">0</span>
+							</div>
+							<div class="block-emotion" id="trust">
+								<span>Trust:</span>
+								<span class="value">0</span>
+							</div>
+							<div class="block-emotion" id="fear">
+								<span>Fear:</span>
+								<span class="value">0</span>
+							</div>
+							<div class="block-emotion" id="anticipation">
+								<span>Anticipation:</span>
+								<span class="value">0</span>
+							</div>
+						</div>
+						<div class="block-emotions col-lg-6">
+							<div class="block-emotion" id="surprise">
+								<span>Surprise:</span>
+								<span class="value">0</span>
+							</div>
+							<div class="block-emotion" id="sadness">
+								<span>Sadness:</span>
+								<span class="value">0</span>
+							</div>
+							<div class="block-emotion" id="disgust">
+								<span>Disgust:</span>
+								<span class="value">0</span>
+							</div>
+							<div class="block-emotion" id="anger">
+								<span>Anger:</span>
+								<span class="value">0</span>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+	</section>
+
+	<section class="contact bg-primary" id="contact">
+		<div class="container">
+			<h2>
+				We
+				<i class="fa fa-heart"></i>
+				new subscribers!
+			</h2>
+			<ul class="list-inline list-social">
+				<li class="list-inline-item social-twitter">
+					<a href="#">
+						<i class="fa fa-twitter"></i>
+					</a>
+				</li>
+				<li class="list-inline-item social-facebook">
+					<a href="#">
+						<i class="fa fa-facebook"></i>
+					</a>
+				</li>
+				<li class="list-inline-item social-google-plus">
+					<a href="#">
+						<i class="fa fa-google-plus"></i>
+					</a>
+				</li>
+			</ul>
+		</div>
+	</section>
+
+	<footer>
+		<div class="container">
+			<p>&copy; 2017 Islam. All Rights Reserved.</p>
+			<ul class="list-inline">
+				<li class="list-inline-item">
+					<a href="#">Privacy</a>
+				</li>
+				<li class="list-inline-item">
+					<a href="#">Terms</a>
+				</li>
+				<li class="list-inline-item">
+					<a href="#">FAQ</a>
+				</li>
+			</ul>
+		</div>
+	</footer>
+
+
+	<script src="js/jquery-3.2.1.min.js"></script>
+	<script src="js/bootstrap.bundle.min.js"></script>
+
+
+	<script src="js/jquery.easing.min.js"></script>
+
+
+	<script src="js/new-age.min.js"></script>
+
+
+
+	<script type="text/javascript" src="js/popper.min.js"></script>
+
+
+
+	<script type="text/javascript" src="js/mdb.min.js"></script>
+
+
+
+	<script type="text/javascript">
+
+	</script>
+
+	<script type="text/javascript">
+		var emotions = [];
+		var values = [];
+		var config = {};
+
+
+		var emotionCanvas = document.getElementById("chart-area");
+
+
+
+
+		window.chartColors = {
+			red: 'rgb(220, 20, 60)',
+			orange: 'rgb(255, 159, 64)',
+			yellow: 'rgb(255, 255, 0)',
+			green: 'rgb(0, 255, 0)',
+			blue: 'rgb(0,0,255)',
+			purple: 'rgb(128, 0, 128)',
+			grey: 'rgb(231,233,237)',
+			cyan: "rgb(0,255,255)"
+
+		};
+
+		var pieData = [];
+
+
+		var colors = Object.values(window.chartColors);
+
+		/* document.getElementById('reset_btn').addEventListener('click', function(event){
+			 document.getElementById('form8').val('');
+		 })*/
+
+
+
+		document.getElementById('analyse_btn').addEventListener('click', function (event) {
+			event.preventDefault();
+			var textarea_val = $('#form8').val();
+			var analyse_url = 'http://localhost:8081//analyzer/analyze';
+
+			jQuery.post(analyse_url, { text: textarea_val })
+				.done(function (response) {
+					var resp_list = response['items'];
+					$.each(resp_list, function () {
+						var elem_id = "#" + this.emotion;
+						elem_value = $(elem_id).find('.value')[0];
+						$(elem_value).html(this.value);
+
+						var element = { value: this.value, color: '#811BD6' }
+						var emotion = this.emotion;
+						emotions.push(emotion);
+						var item_value = this.value;
+						values.push(Number(item_value));
+
+						pieData.push(element);
+
+					});
+
+					console.log(pieData);
+
+					config = {};
+
+
+
+					config = {
+						type: 'pie',
+						data: {
+							datasets: [{
+								data: [
+
+								],
+								backgroundColor: [
+
+								],
+								label: 'Dataset 1'
+							}],
+							labels: [
+
+							]
+						},
+						options: {
+							responsive: true,
+							tooltips: {
+								callbacks: {
+									label: function (tooltipItem, data) {
+										var allData = data.datasets[tooltipItem.datasetIndex].data;
+										var tooltipLabel = data.labels[tooltipItem.index];
+										var tooltipData = allData[tooltipItem.index];
+										var total = 0;
+										for (var i in allData) {
+											total += allData[i];
+										}
+										var tooltipPercentage = Math.round((tooltipData / total) * 100);
+										return tooltipLabel + ': ' + tooltipData + ' (' + tooltipPercentage + '%)';
+									}
+								}
+							}
+						}
+					};
+
+
+
+
+					config.data.datasets.data = values;
+					config.data.datasets.backgroundColor = colors;
+					config.data.labels = emotions;
+
+					console.log(config);
+
+
+					var ctx = document.getElementById("chart-area").getContext("2d");
+					window.myPie = new Chart(ctx, pieData);
+
+				});
+		});
+
+
+
+
+	</script>
+
 </body>
+
 </html>
