@@ -28,7 +28,7 @@ namespace Islam.Controllers
 				Items = result.EmotionalTone.Select(t => new AnalyzeResponseItem
 				{
 					Emotion = t.Emotion,
-					Value = t.Value
+					Value = Math.Round(t.Value, 2)
 				})
 			};
 			return Ok(response);
